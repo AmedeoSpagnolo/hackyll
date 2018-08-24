@@ -38,12 +38,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:paddingRight="10dp"
                 android:text="Host:" />
 
             <EditText
@@ -63,7 +66,9 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:paddingRight="10dp"
                 android:text="Port:" />
 
             <EditText
@@ -84,7 +89,9 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:paddingRight="10dp"
                 android:text="User:" />
 
             <EditText
@@ -105,7 +112,9 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:paddingRight="10dp"
                 android:text="Password:" />
 
             <EditText

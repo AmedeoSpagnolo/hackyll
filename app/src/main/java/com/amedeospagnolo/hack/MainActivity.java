@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         // toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // floating button
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, AddServerActivity.class);
                 //intent.putExtra(ItemDetailsFragment.ARG_ITEM_ID, item.name);
                 context.startActivity(intent);
+                // overridePendingTransition(R.animator, R.anim.exit_out_right);
             }
         });
 
@@ -84,4 +86,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

@@ -1,5 +1,6 @@
 package com.amedeospagnolo.hack;
 
+import android.animation.ObjectAnimator;
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +14,12 @@ public class AddServerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_addserver);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("My title");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // getActionBar().setHomeButtonEnabled(true);
+
+//        ObjectAnimator animation = ObjectAnimator.ofFloat(findViewById(R.id.detail_toolbar), "translationX", 100f);
+//        animation.setDuration(2000);
+//        animation.start();
     }
 
 }
