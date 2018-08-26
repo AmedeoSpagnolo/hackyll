@@ -20,13 +20,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // floating button
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,15 +36,16 @@ public class MainActivity extends AppCompatActivity {
                 context.startActivity(intent);
             }
         });
+        fab.hide();
 
         // tablayout
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("VICTIMS"));
         tabLayout.addTab(tabLayout.newTab().setText("SERVERS"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // viewpager (related to tablayout)
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = findViewById(R.id.pager);
         final pagerAdapter adapter = new pagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                FloatingActionButton fab = findViewById(R.id.fab);
+                if (tab.getPosition() == 0) fab.hide();
+                else fab.show();
             }
 
             @Override

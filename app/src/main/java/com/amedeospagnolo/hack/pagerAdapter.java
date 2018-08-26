@@ -17,11 +17,9 @@ public class pagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                tabActive tab1 = new tabActive();
-                return tab1;
+                return new tabActive();
             case 1:
-                tabPast tab2 = new tabPast();
-                return tab2;
+                return new tabPast();
             default:
                 return null;
         }
@@ -31,4 +29,5 @@ public class pagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return mNumOfTabs;
     }
+
 }
