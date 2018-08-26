@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".AddServerActivity"
-            android:label="AddServerActivity"
+            android:label="Add Server"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

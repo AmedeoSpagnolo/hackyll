@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, AddServerActivity.class);
                 //intent.putExtra(ItemDetailsFragment.ARG_ITEM_ID, item.name);
                 context.startActivity(intent);
-                // overridePendingTransition(R.animator, R.anim.exit_out_right);
             }
         });
 

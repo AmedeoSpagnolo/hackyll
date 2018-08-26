@@ -16,10 +16,6 @@ public class AddServerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle("My title");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-//        ObjectAnimator animation = ObjectAnimator.ofFloat(findViewById(R.id.detail_toolbar), "translationX", 100f);
-//        animation.setDuration(2000);
-//        animation.start();
     }
 
 }
