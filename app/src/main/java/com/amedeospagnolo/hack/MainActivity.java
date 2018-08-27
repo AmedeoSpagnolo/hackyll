@@ -112,6 +112,12 @@ public class MainActivity extends AppCompatActivity {
             context.startActivity(intent);
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
+        } else if (id == R.id.action_test_client){
+            Context context = MainActivity.this;
+            Intent intent = new Intent(MainActivity.this, ClientActivity.class);
+            context.startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
