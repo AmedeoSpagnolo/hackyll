@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.amedeospagnolo.hack.ClientActivity">
+    <item
+        android:id="@+id/action_client_details"
+        android:orderInCategory="100"
+        android:title="View Details"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_client_media"
+        android:orderInCategory="100"
+        android:title="Media"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_client_search"
+        android:orderInCategory="100"
+        android:title="Search"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_client_delete"
+        android:orderInCategory="100"
+        android:title="Delete"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_client_export"
+        android:orderInCategory="100"
+        android:title="Export"
+        app:showAsAction="never" />
+</menu>
