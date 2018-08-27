@@ -6,5 +6,8 @@
     {"ip": "85.321.321.6", "name": "chum"},
     {"ip": "9.9.9.105", "name": "three guys"},
     {"ip": "321.42.53.0", "name": "tim lol"}
+  ],
+  "servers": [
+    {"ip": "this.server", "name": "192.168.1.32"}
   ]
 }

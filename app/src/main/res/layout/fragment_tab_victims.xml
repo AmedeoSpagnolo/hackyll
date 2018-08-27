@@ -19,13 +19,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingTop="20dp"
-                android:text="@string/active_no_connection" />
+                android:text="@string/no_active_victim" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/my_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_card">
+                tools:listitem="@layout/card_item_victim">
 
             </android.support.v7.widget.RecyclerView>
 
