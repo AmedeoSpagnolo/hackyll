@@ -17,9 +17,9 @@ public class pagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                return new tabActive();
+                return new FragmentTabVictims();
             case 1:
-                return new tabPast();
+                return new FragmentTabServer();
             default:
                 return null;
         }

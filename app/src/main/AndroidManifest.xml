@@ -18,15 +18,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ItemDetailsActivity"
-            android:label="ItemDetailsActivity"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
             android:name=".AddServerActivity"
             android:label="Add Server"
             android:parentActivityName=".MainActivity"
