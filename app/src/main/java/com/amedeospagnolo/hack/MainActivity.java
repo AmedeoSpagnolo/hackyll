@@ -3,16 +3,27 @@ package com.amedeospagnolo.hack;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.amedeospagnolo.hack.dummy.DummyContent;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private boolean mTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +97,16 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             Context context = MainActivity.this;
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            context.startActivity(intent);
+            return true;
+        } else if (id == R.id.action_info){
+            Context context = MainActivity.this;
+            Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+            context.startActivity(intent);
+            return true;
+        } else if (id == R.id.actions_add_server){
+            Context context = MainActivity.this;
+            Intent intent = new Intent(MainActivity.this, AddServerActivity.class);
             context.startActivity(intent);
             return true;
         }
