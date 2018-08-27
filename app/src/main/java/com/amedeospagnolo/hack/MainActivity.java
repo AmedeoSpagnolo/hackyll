@@ -87,6 +87,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void show_add_victim_page (View view) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        Context context = view.getContext();
+        Intent intent = new Intent(context, AddVictimActivity.class);
+        context.startActivity(intent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

@@ -37,6 +37,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="@string/button_add_victim"
+                    android:onClick="show_add_victim_page"
                     android:textColor="@android:color/white" />
             </LinearLayout>
 
