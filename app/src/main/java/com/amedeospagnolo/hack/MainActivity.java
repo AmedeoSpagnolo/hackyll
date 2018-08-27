@@ -1,5 +1,6 @@
 package com.amedeospagnolo.hack;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, AddServerActivity.class);
                 //intent.putExtra(ItemDetailsFragment.ARG_ITEM_ID, item.name);
                 context.startActivity(intent);
+                overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
         });
         fab.hide();
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         Context context = view.getContext();
         Intent intent = new Intent(context, AddVictimActivity.class);
         context.startActivity(intent);
+        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
     }
 
     @Override
@@ -95,16 +98,19 @@ public class MainActivity extends AppCompatActivity {
             Context context = MainActivity.this;
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             context.startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
         } else if (id == R.id.action_info){
             Context context = MainActivity.this;
             Intent intent = new Intent(MainActivity.this, InfoActivity.class);
             context.startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
         } else if (id == R.id.actions_add_server){
             Context context = MainActivity.this;
             Intent intent = new Intent(MainActivity.this, AddServerActivity.class);
             context.startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
         }
 
