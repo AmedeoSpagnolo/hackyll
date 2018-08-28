@@ -29,7 +29,7 @@
                     android:id="@+id/my_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/card_item_server">
+                    tools:listitem="@layout/carditem_server">
 
                 </android.support.v7.widget.RecyclerView>
 
