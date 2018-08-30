@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/my_message_body"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -11,4 +12,6 @@
     android:padding="10dp"
     android:text="Placeholder message"
     android:textColor="#fff"
-    android:textSize="18dp" />
+    android:textSize="18dp"
+    app:layout_anchorGravity="right|end"
+    app:layout_constraintEnd_toEndOf="parent" />
