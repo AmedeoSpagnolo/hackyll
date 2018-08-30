@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:paddingTop="10dp">
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/tvHome"
+        android:id="@+id/chat_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/name"
@@ -15,21 +15,8 @@
         android:elevation="2dp"
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
-        android:text="How are you doing? This is a long message that should probably wrap."
+        android:text="Placeholder"
         android:textSize="18dp"
         app:layout_goneMarginTop="30dp" />
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/name"
-        android:layout_below="@+id/name"
-        android:background="@drawable/chat_their_message"
-        android:elevation="2dp"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp"
-        android:text="How are you doing? This is a long message that should probably wrap."
-        android:textSize="18dp"
-        app:layout_goneMarginTop="30dp" />
+
 </LinearLayout>

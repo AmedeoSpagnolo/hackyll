@@ -18,13 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static java.security.AccessController.getContext;
 
 public class ClientActivity extends AppCompatActivity {
     private EditText editText;
-    ArrayList<String> movies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,25 +44,35 @@ public class ClientActivity extends AppCompatActivity {
         });
 
         // add fake data
-
-        ArrayList<User> arrayOfUsers = new ArrayList<User>();
-        UsersAdapter adapter = new UsersAdapter(this, arrayOfUsers);
-        User newUser = new User("Nathan", "San Diego");
-        adapter.add(newUser);
-
-        ListView listView = (ListView) findViewById(R.id.messages_view);
+        ArrayList<DataChat> myFakeDataset = new ArrayList<DataChat>();
+        myChatAdapter_mine adapter = new myChatAdapter_mine(this, myFakeDataset);
+        adapter.add(new DataChat("Hi, Nathan!"));
+        adapter.add(new DataChat("Hi, Bob!"));
+        adapter.add(new DataChat("Hi, Francene!"));
+        adapter.add(new DataChat("Hi, Cammie!"));
+        adapter.add(new DataChat("Hi, Ines!"));
+        adapter.add(new DataChat("Hi, Celeste!"));
+        adapter.add(new DataChat("Hi, Renata!"));
+        adapter.add(new DataChat("Hi, Stephan!"));
+        adapter.add(new DataChat("Hi, Marcia!"));
+        adapter.add(new DataChat("Hi, Romona!"));
+        adapter.add(new DataChat("Hi, Carter!"));
+        adapter.add(new DataChat("Hi, Roslyn!"));
+        adapter.add(new DataChat("Hi, Marshall!"));
+        adapter.add(new DataChat("Hi, Donnell!"));
+        adapter.add(new DataChat("Hi, Sigrid!"));
+        ListView listView = findViewById(R.id.messages_view);
         listView.setAdapter(adapter);
 
-//        // register onClickListener to handle click events on each item
-//        moviesList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-//        {
-//            // argument position gives the index of item which is clicked
-//            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
-//            {
-//                String selectedmovie=movies.get(position);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            // argument position gives the index of item which is clicked
+            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
+            {
+//                String selectedmovie=myFakeDataset.get(position);
 //                Toast.makeText(getApplicationContext(), "Movie Selected : "+selectedmovie,   Toast.LENGTH_LONG).show();
-//            }
-//        });
+            }
+        });
 
     }
 
@@ -84,26 +92,39 @@ public class ClientActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public class UsersAdapter extends ArrayAdapter<User> {
-        public UsersAdapter(Context context, ArrayList<User> users) {
-            super(context, 0, users);
+
+    public class myChatAdapter_their extends ArrayAdapter<DataChat> {
+        public myChatAdapter_their(Context context, ArrayList<DataChat> my_items) {
+            super(context, 0, my_items);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            // Get the data item for this position
-            User user = getItem(position);
+            DataChat my_items = getItem(position);
             // Check if an existing view is being reused, otherwise inflate the view
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_their_message, parent, false);
             }
-            // Lookup view for data population
-            TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
-            TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
-            // Populate the data into the template view using the data object
-            tvName.setText(user.name);
-            tvHome.setText(user.hometown);
-            // Return the completed view to render on screen
+            TextView chatMessage = (TextView) convertView.findViewById(R.id.chat_message);
+            chatMessage.setText(my_items.message);
+            return convertView;
+        }
+    }
+
+    public class myChatAdapter_mine extends ArrayAdapter<DataChat> {
+        public myChatAdapter_mine(Context context, ArrayList<DataChat> my_items) {
+            super(context, 0, my_items);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            DataChat my_items = getItem(position);
+            // Check if an existing view is being reused, otherwise inflate the view
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_my_message, parent, false);
+            }
+            TextView chatMessage = (TextView) convertView.findViewById(R.id.chat_message);
+            chatMessage.setText(my_items.message);
             return convertView;
         }
     }

@@ -1,10 +1,10 @@
 package com.amedeospagnolo.hack;
 
-public class User {
+public class DataVictim {
     public String name;
     public String hometown;
 
-    public User(String name, String hometown) {
+    public DataVictim(String name, String hometown) {
         this.name = name;
         this.hometown = hometown;
     }
