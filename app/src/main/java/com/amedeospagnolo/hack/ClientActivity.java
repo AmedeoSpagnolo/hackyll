@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -42,32 +45,15 @@ public class ClientActivity extends AppCompatActivity {
             }
         });
 
-        // fake data
-        ListView moviesList = findViewById(R.id.messages_view);
+        // add fake data
 
-        movies = new ArrayList<String>();
-        movies.add("X-Men");
-        movies.add("IRONMAN");
-        movies.add("SPIDY");
-        movies.add("NARNIA");
-        movies.add("LIONKING");
-        movies.add("AVENGERS");
-        movies.add("X-Men");
-        movies.add("IRONMAN");
-        movies.add("SPIDY");
-        movies.add("NARNIA");
-        movies.add("LIONKING");
-        movies.add("AVENGERS");
-        movies.add("X-Men");
-        movies.add("IRONMAN");
-        movies.add("SPIDY");
-        movies.add("NARNIA");
-        movies.add("LIONKING");
-        movies.add("AVENGERS");
+        ArrayList<User> arrayOfUsers = new ArrayList<User>();
+        UsersAdapter adapter = new UsersAdapter(this, arrayOfUsers);
+        User newUser = new User("Nathan", "San Diego");
+        adapter.add(newUser);
 
-        ArrayAdapter<String> arrayMyAdapter = new ArrayAdapter<String>(this, R.layout.chat_my_message, movies);
-        moviesList.setAdapter(arrayMyAdapter);
-
+        ListView listView = (ListView) findViewById(R.id.messages_view);
+        listView.setAdapter(adapter);
 
 //        // register onClickListener to handle click events on each item
 //        moviesList.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -84,7 +70,6 @@ public class ClientActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_client, menu);
         return true;
     }
@@ -94,16 +79,40 @@ public class ClientActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_client_details) {
-            // do something special
+            // do something
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public class UsersAdapter extends ArrayAdapter<User> {
+        public UsersAdapter(Context context, ArrayList<User> users) {
+            super(context, 0, users);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            // Get the data item for this position
+            User user = getItem(position);
+            // Check if an existing view is being reused, otherwise inflate the view
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_their_message, parent, false);
+            }
+            // Lookup view for data population
+            TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
+            TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
+            // Populate the data into the template view using the data object
+            tvName.setText(user.name);
+            tvHome.setText(user.hometown);
+            // Return the completed view to render on screen
+            return convertView;
+        }
     }
 
     public void sendMessage(View view) {
         String message = editText.getText().toString();
         if (message.length() > 0) {
             editText.getText().clear();
+            // do something
         }
     }
 
