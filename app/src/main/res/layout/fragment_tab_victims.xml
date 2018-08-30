@@ -41,13 +41,19 @@
                     android:textColor="@android:color/white" />
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/my_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/carditem_victim">
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/my_recycler_view"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--tools:listitem="@layout/carditem_victim">-->
 
-            </android.support.v7.widget.RecyclerView>
+            <!--</android.support.v7.widget.RecyclerView>-->
+
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
 
             <Space
                 android:layout_width="match_parent"
