@@ -52,11 +52,22 @@ public class ClientActivity extends AppCompatActivity {
         movies.add("NARNIA");
         movies.add("LIONKING");
         movies.add("AVENGERS");
+        movies.add("X-Men");
+        movies.add("IRONMAN");
+        movies.add("SPIDY");
+        movies.add("NARNIA");
+        movies.add("LIONKING");
+        movies.add("AVENGERS");
+        movies.add("X-Men");
+        movies.add("IRONMAN");
+        movies.add("SPIDY");
+        movies.add("NARNIA");
+        movies.add("LIONKING");
+        movies.add("AVENGERS");
 
-        ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(this, R.layout.chat_my_message, movies);
-        // Set The Adapter
-        moviesList.setAdapter(arrayAdapter);
+        ArrayAdapter<String> arrayMyAdapter = new ArrayAdapter<String>(this, R.layout.chat_my_message, movies);
+        moviesList.setAdapter(arrayMyAdapter);
+
 
 //        // register onClickListener to handle click events on each item
 //        moviesList.setOnItemClickListener(new AdapterView.OnItemClickListener()
