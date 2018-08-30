@@ -15,11 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
-import static java.security.AccessController.getContext;
 
 public class ClientActivity extends AppCompatActivity {
     private EditText editText;
