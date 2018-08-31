@@ -33,7 +33,6 @@ public class ClientActivity extends AppCompatActivity {
         clIp = findViewById(R.id.this_client_ip);
 
         Bundle extras = getIntent().getExtras();
-        Log.d("ASD -->", ""+extras);
         if(extras == null) {
             clName = null;
             clIp = null;
