@@ -2,10 +2,10 @@ package com.amedeospagnolo.hack;
 
 public class DataVictim {
     public String name;
-    public String hometown;
+    public String ip;
 
-    public DataVictim(String name, String hometown) {
+    public DataVictim(String name, String ip) {
         this.name = name;
-        this.hometown = hometown;
+        this.ip = ip;
     }
 }
