@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,12 +21,27 @@ import java.util.ArrayList;
 
 public class ClientActivity extends AppCompatActivity {
     private EditText editText;
+    private TextView clName;
+    private TextView clIp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
         editText = findViewById(R.id.myNewMessageBox);
+        clName = findViewById(R.id.this_client_name);
+        clIp = findViewById(R.id.this_client_ip);
+
+        Bundle extras = getIntent().getExtras();
+        Log.d("ASD -->", ""+extras);
+        if(extras == null) {
+            clName = null;
+            clIp = null;
+
+        } else {
+            clName.setText(extras.getString("client_name"));
+            clIp.setText(extras.getString("client_ip"));
+        }
 
         // ADD TOOLBAR
         Toolbar toolbar = findViewById(R.id.detail_toolbar);

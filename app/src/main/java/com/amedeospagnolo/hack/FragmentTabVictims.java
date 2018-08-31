@@ -1,6 +1,7 @@
 package com.amedeospagnolo.hack;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,47 +12,36 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class FragmentTabVictims extends Fragment {
+    public ArrayList<DataVictim> myFakeDataset = new ArrayList<DataVictim>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tab_victims, container, false);
 
         // add fake data
-        ArrayList<DataVictim> myFakeDataset = new ArrayList<DataVictim>();
         VictimAdapterList adapter = new VictimAdapterList(this.getContext(), myFakeDataset);
-        adapter.add(new DataVictim("Hi, Nathan!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Bob!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Francene!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Cammie!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Ines!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Celeste!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Renata!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Stephan!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Marcia!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Romona!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Carter!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Roslyn!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Marshall!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Donnell!", "Hong Kong"));
-        adapter.add(new DataVictim("Hi, Sigrid!", "Hong Kong"));
-
+        adapter.add(new DataVictim("Francene_mac", "10.20.30.40"));
+        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55"));
         ListView listView = rootView.findViewById(R.id.list_clients);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            // argument position gives the index of item which is clicked
-            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
-            {
-//              String selectedmovie=myFakeDataset.get(position);
-//              Toast.makeText(getApplicationContext(), "Movie Selected : "+selectedmovie,   Toast.LENGTH_LONG).show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3){
+                String clName = myFakeDataset.get(position).name;
+                String clIp = myFakeDataset.get(position).ip;
+                Context context = getContext();
+                Intent intent = new Intent(context, ClientActivity.class);
+                intent.putExtra("client_name", clName);
+                intent.putExtra("client_ip", clIp);
+                if (context != null) context.startActivity(intent);
+                // overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
         });
-
         return rootView;
     }
 
