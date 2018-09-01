@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar"
             android:background="@drawable/gradient"
-            android:elevation="6dp"
+            android:elevation="0dp"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 

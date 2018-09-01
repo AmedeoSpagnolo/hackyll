@@ -8,11 +8,14 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    public int CLIENT_TAB = 0;
+    public int SERVER_TAB = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,25 +28,36 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // floating button
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context context = view.getContext();
-                Intent intent = new Intent(context, AddServerActivity.class);
-                //intent.putExtra(ItemDetailsFragment.ARG_ITEM_ID, item.name);
-                context.startActivity(intent);
-                overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
-            }
-        });
-        fab.hide();
-
         // tablayout
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("VICTIMS"));
         tabLayout.addTab(tabLayout.newTab().setText("SERVERS"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        // floating buttons
+        FloatingActionButton fabClient = findViewById(R.id.fab_client);
+        FloatingActionButton fabServer = findViewById(R.id.fab_server);
+
+        fabClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, AddVictimActivity.class);
+                context.startActivity(intent);
+                overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
+            }
+        });
+        fabServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, AddServerActivity.class);
+                context.startActivity(intent);
+                overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
+            }
+        });
+        int tab_position = tabLayout.getSelectedTabPosition();
+        choose_right_fab(tab_position);
 
         // viewpager (related to tablayout)
         final ViewPager viewPager = findViewById(R.id.pager);
@@ -55,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                FloatingActionButton fab = findViewById(R.id.fab);
-                if (tab.getPosition() == 0) fab.hide();
-                else fab.show();
+                choose_right_fab(tab.getPosition());
             }
 
             @Override
@@ -67,6 +79,22 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {}
         });
 
+    }
+
+    public void choose_right_fab(int pos){
+        FloatingActionButton fabClient = findViewById(R.id.fab_client);
+        FloatingActionButton fabServer = findViewById(R.id.fab_server);
+        if (pos == SERVER_TAB) {
+            fabClient.hide();
+            fabServer.show();
+        }
+        else if (pos == CLIENT_TAB){
+            fabClient.show();
+            fabServer.hide();
+        } else {
+            fabClient.hide();
+            fabServer.hide();
+        }
     }
 
     @Override

@@ -4,7 +4,7 @@
     <string name="logo">hackyll</string>
 
     <string name="no_active_server">No active connections</string>
-    <string name="no_active_victim">No active victim</string>
+    <string name="no_active_clients">No active clients</string>
     <string name="button_add_victim">Add Victim</string>
 
     <string name="add_server">Add Server</string>

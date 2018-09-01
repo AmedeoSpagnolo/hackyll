@@ -25,11 +25,10 @@ public class FragmentTabVictims extends Fragment {
 
         // add fake data
         VictimAdapterList adapter = new VictimAdapterList(this.getContext(), myFakeDataset);
-        adapter.add(new DataVictim("Francene_mac", "10.20.30.40"));
-        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55"));
+//        adapter.add(new DataVictim("Francene_mac", "10.20.30.40"));
+//        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55"));
         ListView listView = rootView.findViewById(R.id.list_clients);
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3){
                 String clName = myFakeDataset.get(position).name;
@@ -42,6 +41,10 @@ public class FragmentTabVictims extends Fragment {
                 // overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
         });
+
+        // hide text if it's not empty'
+        TextView noClientsText = rootView.findViewById(R.id.no_clients);
+        if (!myFakeDataset.isEmpty()) noClientsText.setVisibility(View.GONE);
         return rootView;
     }
 
