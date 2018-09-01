@@ -25,8 +25,8 @@ public class FragmentTabVictims extends Fragment {
 
         // add fake data
         VictimAdapterList adapter = new VictimAdapterList(this.getContext(), myFakeDataset);
-//        adapter.add(new DataVictim("Francene_mac", "10.20.30.40"));
-//        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55"));
+        adapter.add(new DataVictim("Francene_mac", "10.20.30.40"));
+        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55"));
         ListView listView = rootView.findViewById(R.id.list_clients);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

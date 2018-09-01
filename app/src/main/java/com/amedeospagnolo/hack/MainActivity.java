@@ -99,17 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    public void show_add_victim_page (View view) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        Context context = view.getContext();
-        Intent intent = new Intent(context, AddVictimActivity.class);
-        context.startActivity(intent);
-        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
     }
 
     @Override
