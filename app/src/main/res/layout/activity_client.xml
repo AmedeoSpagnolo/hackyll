@@ -63,17 +63,12 @@
         <ListView
             android:id="@+id/messages_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_height="0dp"
             android:layout_weight="2"
-            android:divider="#fff"
+            android:divider="@android:color/white"
             android:paddingBottom="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="0dp"
             android:stackFromBottom="true"
-            android:transcriptMode="normal"></ListView>
+            android:transcriptMode="normal" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -82,7 +77,7 @@
             android:orientation="horizontal">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:background="@drawable/input_text_bg"
@@ -93,7 +88,6 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_gravity="bottom"
                     android:minHeight="46dp"
                     android:orientation="horizontal"
