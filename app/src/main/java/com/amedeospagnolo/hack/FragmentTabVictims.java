@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,12 +60,19 @@ public class FragmentTabVictims extends Fragment {
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.carditem_victim, parent, false);
             }
+
             TextView clName = convertView.findViewById(R.id.client_name);
-            TextView clIp = convertView.findViewById(R.id.client_ip);
-            TextView clTime = convertView.findViewById(R.id.client_time);
             clName.setText(my_items.name);
+
+            TextView clIp = convertView.findViewById(R.id.client_ip);
             clIp.setText(my_items.ip);
+
+            TextView clTime = convertView.findViewById(R.id.client_time);
             clTime.setText(my_items.time);
+
+            ImageView clImage = convertView.findViewById(R.id.client_image);
+            clImage.setImageResource(R.drawable.client_icon01);
+
             return convertView;
         }
     }

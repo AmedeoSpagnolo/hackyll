@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         // tablayout
         TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("VICTIMS"));
-        tabLayout.addTab(tabLayout.newTab().setText("SERVERS"));
+        tabLayout.addTab(tabLayout.newTab().setText("clients"));
+        tabLayout.addTab(tabLayout.newTab().setText("servers"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // floating buttons
