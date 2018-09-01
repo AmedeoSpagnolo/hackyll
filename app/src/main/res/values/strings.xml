@@ -14,6 +14,6 @@
     <string name="action_info">info</string>
     <string name="action_settings">Settings</string>
     <string name="action_add_server">Add Server</string>
-    <string name="action_test_client">Test Client</string>
+    <string name="action_add_client">Add Client</string>
     <string name="input_tab">tab</string>
 </resources>

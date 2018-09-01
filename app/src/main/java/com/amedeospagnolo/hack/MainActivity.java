@@ -105,12 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Context context = MainActivity.this;
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
@@ -126,6 +122,12 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.actions_add_server){
             Context context = MainActivity.this;
             Intent intent = new Intent(MainActivity.this, AddServerActivity.class);
+            context.startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
+            return true;
+        } else if (id == R.id.actions_add_client) {
+            Context context = MainActivity.this;
+            Intent intent = new Intent(MainActivity.this, AddVictimActivity.class);
             context.startActivity(intent);
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
