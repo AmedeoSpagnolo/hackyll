@@ -2,8 +2,11 @@ package com.amedeospagnolo.hack;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,8 +29,18 @@ public class FragmentTabVictims extends Fragment {
 
         // add fake data
         VictimAdapterList adapter = new VictimAdapterList(this.getContext(), myFakeDataset);
-        adapter.add(new DataVictim("Francene_mac", "10.20.30.40", "12.35"));
-        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55", "04:21"));
+
+        adapter.add(new DataVictim("Francene_mac", "10.20.30.40", "12.35", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon01)));
+        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55", "4:21", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon02)));
+        adapter.add(new DataVictim("THIS", "55.55.42.55", "14:51", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon03)));
+        adapter.add(new DataVictim("OLD", "49.30.42.55", "7:48", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon04)));
+        adapter.add(new DataVictim("that", "889.30.42.55", "4:02", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon05)));
+        adapter.add(new DataVictim("Francene_mac", "10.20.30.40", "12.35", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon01)));
+        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55", "4:21", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon02)));
+        adapter.add(new DataVictim("THIS", "55.55.42.55", "14:51", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon03)));
+        adapter.add(new DataVictim("OLD", "49.30.42.55", "7:48", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon04)));
+        adapter.add(new DataVictim("that", "889.30.42.55", "4:02", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon05)));
+
         ListView listView = rootView.findViewById(R.id.list_clients);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,7 +84,7 @@ public class FragmentTabVictims extends Fragment {
             clTime.setText(my_items.time);
 
             ImageView clImage = convertView.findViewById(R.id.client_image);
-            clImage.setImageResource(R.drawable.client_icon01);
+            clImage.setImageDrawable(my_items.avatar);
 
             return convertView;
         }
