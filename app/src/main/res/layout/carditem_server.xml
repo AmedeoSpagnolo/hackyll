@@ -51,8 +51,7 @@
             app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintHorizontal_weight="5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@sample/dataset.json/victims/ip" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/server_name"
@@ -62,8 +61,7 @@
             android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/server_ip"
-            tools:text="@sample/dataset.json/victims/name" />
+            app:layout_constraintTop_toBottomOf="@+id/server_ip"/>
 
     </android.support.constraint.ConstraintLayout>
 
