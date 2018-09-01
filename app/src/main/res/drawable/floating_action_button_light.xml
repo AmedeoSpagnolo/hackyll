@@ -7,15 +7,17 @@
             android:width="30dp">
             <gradient
                 android:angle="0"
-                android:endColor="#115ede"
-                android:startColor="#f6ee19"
+                android:startColor="@color/colorAccent"
+                android:endColor="@color/colorPrimary"
                 android:type="linear" />
         </shape>
     </item>
-    <item android:gravity="center">
+    <item android:gravity="center"
+        android:width="30dp"
+        android:height="30dp">
         <bitmap
-            android:gravity="fill_horizontal"
-            android:src="@drawable/plus" />
+
+            android:src="@drawable/exec" />
 
     </item>
 
