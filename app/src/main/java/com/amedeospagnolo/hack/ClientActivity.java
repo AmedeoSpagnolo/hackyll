@@ -58,6 +58,7 @@ public class ClientActivity extends AppCompatActivity {
         // add fake data
         ArrayList<DataChat> myFakeDataset = new ArrayList<DataChat>();
         myChatAdapter_mine adapter = new myChatAdapter_mine(this, myFakeDataset);
+//        myChatAdapter_their adapter = new myChatAdapter_their(this, myFakeDataset);
         adapter.add(new DataChat("Hi, Nathan!"));
         adapter.add(new DataChat("Hi, Bob!"));
         adapter.add(new DataChat("Hi, Francene!"));
