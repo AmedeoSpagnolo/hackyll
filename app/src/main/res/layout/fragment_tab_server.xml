@@ -13,14 +13,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:paddingTop="20dp"
-                android:text="@string/no_active_server" />
-
             <ListView
                 android:id="@+id/list_servers"
                 android:layout_width="368dp"

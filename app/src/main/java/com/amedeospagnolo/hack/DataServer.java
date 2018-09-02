@@ -1,11 +1,17 @@
 package com.amedeospagnolo.hack;
 
-public class DataServer {
-    public String server_name;
-    public String server_ip;
+import android.graphics.drawable.Drawable;
 
-    public DataServer(String server_name, String server_ip) {
-        this.server_name = server_name;
-        this.server_ip = server_ip;
+public class DataServer {
+    public String name;
+    public String ip;
+    public String time;
+    public Drawable avatar;
+
+    public DataServer(String name, String ip, String time, Drawable avatar) {
+        this.name = name;
+        this.ip = ip;
+        this.time = time;
+        this.avatar = avatar;
     }
 }

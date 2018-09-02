@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,16 +26,16 @@ public class FragmentTabServer extends Fragment {
 
         // add fake data
         FragmentTabServer.ServerAdapterList adapter = new FragmentTabServer.ServerAdapterList(this.getContext(), myFakeDataset);
-        adapter.add(new DataServer("server_Francene", "0.0.0.40"));
-        adapter.add(new DataServer("server_Tre", "0.1.1.10"));
-        adapter.add(new DataServer("pi_Ines", "0.30.0.55"));
+        adapter.add(new DataServer("My Server", "44.38.450.40", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_custom)));
+        adapter.add(new DataServer("Test Server", "21.43.26.80", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_test)));
+        adapter.add(new DataServer("Hackyll Server", "124.88.0.40", "00:00:00", ContextCompat.getDrawable(this.getContext(), R.drawable.server_hackyll)));
         ListView listView = rootView.findViewById(R.id.list_servers);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3){
-                String srName = myFakeDataset.get(position).server_name;
-                String srIp = myFakeDataset.get(position).server_ip;
+                String srName = myFakeDataset.get(position).name;
+                String srIp = myFakeDataset.get(position).ip;
                 Context context = getContext();
                 Intent intent = new Intent(context, ServerActivity.class);
                 intent.putExtra("server_name", srName);
@@ -56,10 +58,19 @@ public class FragmentTabServer extends Fragment {
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.carditem_server, parent, false);
             }
-            TextView srName = convertView.findViewById(R.id.server_name);
-            TextView srIp = convertView.findViewById(R.id.server_ip);
-            srName.setText(my_items.server_name);
-            srIp.setText(my_items.server_ip);
+
+            TextView clName = convertView.findViewById(R.id.server_name);
+            clName.setText(my_items.name);
+
+            TextView clIp = convertView.findViewById(R.id.server_ip);
+            clIp.setText(my_items.ip);
+
+            TextView clTime = convertView.findViewById(R.id.server_time);
+            clTime.setText(my_items.time);
+
+            ImageView clImage = convertView.findViewById(R.id.server_image);
+            clImage.setImageDrawable(my_items.avatar);
+
             return convertView;
         }
     }
