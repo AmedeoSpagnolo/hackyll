@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,9 +27,9 @@ public class FragmentTabServer extends Fragment {
 
         // add fake data
         FragmentTabServer.ServerAdapterList adapter = new FragmentTabServer.ServerAdapterList(this.getContext(), myFakeDataset);
-        adapter.add(new DataServer("My Server", "44.38.450.40", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_custom)));
-        adapter.add(new DataServer("Test Server", "21.43.26.80", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_test)));
-        adapter.add(new DataServer("Hackyll Server", "124.88.0.40", "00:00:00", ContextCompat.getDrawable(this.getContext(), R.drawable.server_hackyll)));
+        adapter.add(new DataServer("My Server", "44.38.450.40", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_custom), false));
+        adapter.add(new DataServer("Test Server", "21.43.26.80", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_test),false));
+        adapter.add(new DataServer("Hackyll Server", "124.88.0.40", "00:00:00", ContextCompat.getDrawable(this.getContext(), R.drawable.server_hackyll),true));
         ListView listView = rootView.findViewById(R.id.list_servers);
         listView.setAdapter(adapter);
 
@@ -44,6 +45,7 @@ public class FragmentTabServer extends Fragment {
                 // overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
         });
+
         return rootView;
     }
 
@@ -70,6 +72,10 @@ public class FragmentTabServer extends Fragment {
 
             ImageView clImage = convertView.findViewById(R.id.server_image);
             clImage.setImageDrawable(my_items.avatar);
+
+            // show shop
+            LinearLayout shop = convertView.findViewById(R.id.server_shop);
+            if (!my_items.has_shop) shop.setVisibility(View.GONE);
 
             return convertView;
         }

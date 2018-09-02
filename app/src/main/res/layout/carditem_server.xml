@@ -5,72 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:maxHeight="100dp"
-    android:minHeight="100dp">
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/avatar_wrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/server_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:contentDescription="@null"
-            android:cropToPadding="false"
-            app:layout_constraintDimensionRatio="h,1:1"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
-
-    </android.support.constraint.ConstraintLayout>
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|start"
-        android:orientation="horizontal"
-        android:paddingLeft="5dp">
+        android:gravity="center_vertical"
+        android:maxHeight="100dp"
+        android:minHeight="100dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/avatar_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/server_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@null"
+                android:cropToPadding="false"
+                app:layout_constraintDimensionRatio="h,1:1"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="10dp">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="10dp"
+                tools:layout_editor_absoluteY="10dp">
+
+                <TextView
+                    android:id="@+id/server_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    tools:text="name" />
+
+                <TextView
+                    android:id="@+id/server_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    tools:text="ip" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/server_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                tools:text="name" />
-
-            <TextView
-                android:id="@+id/server_ip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                tools:text="ip" />
+                android:id="@+id/server_time"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                tools:text="time" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/server_time"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:gravity="end"
-            tools:text="time" />
-
     </LinearLayout>
 
+    <include
+        layout="@layout/hackyll_server_shop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1" />
 </LinearLayout>

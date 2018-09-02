@@ -16,4 +16,13 @@
     <string name="action_add_server">Add Server</string>
     <string name="action_add_client">Add Client</string>
     <string name="input_tab">tab</string>
+
+    <!--shop-->
+    <string name="button_shop_1">HK$8</string>
+    <string name="button_shop_2">HK$78</string>
+    <string name="button_shop_3">HK$398</string>
+    <string name="button_shop_1_label">Add 5 min</string>
+    <string name="button_shop_2_label">Add 25 min</string>
+    <string name="button_shop_3_label">Add 3 hours</string>
+
 </resources>

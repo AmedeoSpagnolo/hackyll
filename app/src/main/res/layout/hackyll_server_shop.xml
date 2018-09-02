@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/server_shop"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="horizontal"
+    tools:layout_editor_absoluteX="20dp"
+    tools:layout_editor_absoluteY="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="fill_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/button_shop_1_label" />
+
+            <Button
+                android:id="@+id/button_shop_1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/button_round_corner"
+                android:text="@string/button_shop_1"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/button_shop_2_label" />
+
+            <Button
+                android:id="@+id/button_shop_2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/button_round_corner"
+                android:text="@string/button_shop_2"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/button_shop_3_label" />
+
+            <Button
+                android:id="@+id/button_shop_3"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/button_round_corner"
+                android:text="@string/button_shop_3"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+</LinearLayout>
