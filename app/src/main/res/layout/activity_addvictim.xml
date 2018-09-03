@@ -47,7 +47,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/planets_spinner"
+                android:id="@+id/add_client_spinner_server"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -70,7 +70,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/planets_spinner_7"
+                android:id="@+id/add_client_spinner_os"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -80,30 +80,45 @@
 
 
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/new_payload"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:autoLink="all"
-            android:background="@drawable/payload_bg"
-            android:gravity="top|left"
-            android:hint="$ whoami"
-            android:inputType="textMultiLine|textCapSentences"
-            android:lines="5"
-            android:maxLines="5"
-            android:minLines="1"
-            android:padding="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/darker_gray" />
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Payload"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/new_payload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:autoLink="all"
+                android:background="@drawable/payload_bg"
+                android:gravity="top|left"
+                android:hint="$ whoami"
+                android:inputType="textMultiLine|textCapSentences"
+                android:lines="5"
+                android:maxLines="5"
+                android:minLines="1"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 

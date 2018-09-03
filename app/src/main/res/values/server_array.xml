@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="server_array">
+        <item>My Server</item>
+        <item>Test Server</item>
+        <item>Hackyll Server</item>
+    </string-array>
+</resources>
