@@ -51,9 +51,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_input_gray"
-                android:minHeight="40dp" />
+                android:background="@drawable/bg_spinner"
+                android:minHeight="55dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -74,9 +74,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_input_gray"
-                android:minHeight="40dp" />
+                android:background="@drawable/bg_spinner"
+                android:minHeight="55dp" />
 
 
         </LinearLayout>
@@ -107,7 +106,8 @@
                 android:hint="$ whoami"
                 android:inputType="textMultiLine|textCapSentences"
                 android:lines="5"
-                android:maxLines="5"
+                android:text="@string/payload_example"
+                android:maxLines="6"
                 android:minLines="1"
                 android:padding="10dp"
                 android:textColor="@android:color/white"
@@ -125,8 +125,12 @@
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Share Payload" />
+                android:layout_height="40dp"
+                android:background="@drawable/button_round_corner"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Share Payload"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
     </LinearLayout>
