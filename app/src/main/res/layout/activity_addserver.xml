@@ -28,129 +28,129 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:padding="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RPC Server:" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
-
+            android:orientation="vertical">
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="Host:" />
+                android:paddingLeft="10dp"
+                android:text="Host:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edittext_ip"
-                android:layout_width="0dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_input_singleline"
                 android:hint="host (localhost)"
                 android:maxLines="1"
+                android:minHeight="55dp"
                 android:singleLine="true" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="Port:" />
+                android:paddingLeft="10dp"
+                android:text="Port:"
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edittext_port"
-                android:layout_width="0dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:hint="port (55553)"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_input_singleline"
+                android:hint="8888"
                 android:maxLines="1"
-                android:singleLine="true"
-                android:text="55553" />
+                android:minHeight="55dp"
+                android:singleLine="true" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="User:" />
+                android:paddingLeft="10dp"
+                android:text="User:"
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edittext_user"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_input_singleline"
                 android:hint="username (msf)"
                 android:maxLines="1"
-                android:singleLine="true"
-                android:text="" />
+                android:minHeight="55dp"
+                android:singleLine="true" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="Password:" />
+                android:paddingLeft="10dp"
+                android:text="Password:"
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edittext_pass"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_input_singleline"
                 android:hint="password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:singleLine="true"
-                android:text="" />
+                android:minHeight="55dp"
+                android:singleLine="true" />
         </LinearLayout>
 
         <CheckBox
             android:id="@+id/checkbox_ssl"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:checked="true"
             android:paddingRight="8dp"
             android:text="SSL connection" />
 
-        <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="right"-->
-        <!--android:onClick="update"-->
-        <!--android:text="Update" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="right"-->
-        <!--android:onClick="connect"-->
-        <!--android:text="Connect" />-->
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/button_round_corner"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Connect"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
