@@ -1,31 +1,45 @@
 package com.amedeospagnolo.hack;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+import java.util.ArrayList;
+
 
 public class ServerActivity extends AppCompatActivity {
-    private TextView srName;
-    private TextView srIp;
+    private EditText editText;
+    private TextView clName;
+    private TextView clIp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
-        srName = findViewById(R.id.this_server_name);
-        srIp = findViewById(R.id.this_server_ip);
+        editText = findViewById(R.id.myNewMessageBox);
+        clName = findViewById(R.id.this_server_name);
+        clIp = findViewById(R.id.this_server_ip);
 
         Bundle extras = getIntent().getExtras();
         if(extras == null) {
-            srName = null;
-            srIp = null;
+            clName = null;
+            clIp = null;
 
         } else {
-            srName.setText(extras.getString("server_name"));
-            srIp.setText(extras.getString("server_ip"));
+            clName.setText(extras.getString("server_name"));
+            clIp.setText(extras.getString("server_ip"));
         }
 
         // ADD TOOLBAR
@@ -40,6 +54,87 @@ public class ServerActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_right);
             }
         });
+
+        // add fake data
+        ArrayList<DataChat> myFakeDataset = new ArrayList<DataChat>();
+        myChatAdapter_mine adapter = new myChatAdapter_mine(this, myFakeDataset);
+//        myChatAdapter_their adapter = new myChatAdapter_their(this, myFakeDataset);
+        adapter.add(new DataChat("Hi Server"));
+        adapter.add(new DataChat("How are you!"));
+        ListView listView = findViewById(R.id.messages_view);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            // argument position gives the index of item which is clicked
+            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
+            {
+//                String selectedmovie=myFakeDataset.get(position);
+//                Toast.makeText(getApplicationContext(), "Movie Selected : "+selectedmovie,   Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_server, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_server_details) {
+            // do something
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public class myChatAdapter_their extends ArrayAdapter<DataChat> {
+        public myChatAdapter_their(Context context, ArrayList<DataChat> my_items) {
+            super(context, 0, my_items);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            DataChat my_items = getItem(position);
+            // Check if an existing view is being reused, otherwise inflate the view
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_their_message, parent, false);
+            }
+            TextView chatMessage = (TextView) convertView.findViewById(R.id.chat_message);
+            chatMessage.setText(my_items.message);
+            return convertView;
+        }
+    }
+
+    public class myChatAdapter_mine extends ArrayAdapter<DataChat> {
+        public myChatAdapter_mine(Context context, ArrayList<DataChat> my_items) {
+            super(context, 0, my_items);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            DataChat my_items = getItem(position);
+            // Check if an existing view is being reused, otherwise inflate the view
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_my_message, parent, false);
+            }
+            TextView chatMessage = (TextView) convertView.findViewById(R.id.chat_message);
+            chatMessage.setText(my_items.message);
+            return convertView;
+        }
+    }
+
+    public void sendMessage(View view) {
+        String message = editText.getText().toString();
+        if (message.length() > 0) {
+            editText.getText().clear();
+            // do something
+        }
     }
 
 }

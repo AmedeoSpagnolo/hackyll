@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.amedeospagnolo.hack.ClientActivity">
+    <item
+        android:id="@+id/action_server_details"
+        android:orderInCategory="100"
+        android:title="View Details"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_server_search"
+        android:orderInCategory="100"
+        android:title="Close Connection"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_server_export"
+        android:orderInCategory="100"
+        android:title="Export"
+        app:showAsAction="never" />
+</menu>
