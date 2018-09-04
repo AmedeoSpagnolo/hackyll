@@ -25,6 +25,10 @@
     <string name="button_shop_2_label">Add 25 min</string>
     <string name="button_shop_3_label">Add 3 hours</string>
 
+    <string name="info_text_01">Hackyll aims to solve the difficulty of writing code and commands on smaller screens.</string>
+    <string name="info_text_02">More than half of all website traffic comes from mobile devices. It’s time to move Penetration Testing tools on mobile as well.</string>
+    <string name="info_text_03">As many platform out there this one is not born with an offesive purpose. Choose the bright way. Hackyll is not responsable for any illegal use.</string>
+
     <string name="payload_example"># windows/shell_bind_tcp - 341 bytes
 # http://www.metasploit.com
 # VERBOSE=false, LPORT=1234, RHOST=, EXITFUNC=seh,
