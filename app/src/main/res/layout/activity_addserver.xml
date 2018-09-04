@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/gradient"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             app:elevation="0dp"
             app:popupTheme="@style/AppTheme.PopupOverlay"></android.support.v7.widget.Toolbar>
 
