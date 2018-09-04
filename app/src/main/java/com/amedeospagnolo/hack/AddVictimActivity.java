@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -56,6 +57,7 @@ public class AddVictimActivity extends AppCompatActivity {
         LayoutInflater inflater = (LayoutInflater)
                 getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.popup_share_payload, null);
+        popupView.setAnimation(AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom));
 
         // create the popup window
         int width = LinearLayout.LayoutParams.MATCH_PARENT;
