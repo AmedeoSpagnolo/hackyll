@@ -54,8 +54,8 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".AddVictimActivity"
-            android:label="Add Victim"
+            android:name=".AddClientActivity"
+            android:label="Add Client"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

@@ -20,26 +20,26 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class FragmentTabVictims extends Fragment {
-    public ArrayList<DataVictim> myFakeDataset = new ArrayList<DataVictim>();
+public class FragmentTabClient extends Fragment {
+    public ArrayList<DataClient> myFakeDataset = new ArrayList<DataClient>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_tab_victims, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tab_client, container, false);
 
         // add fake data
-        VictimAdapterList adapter = new VictimAdapterList(this.getContext(), myFakeDataset);
+        ClientAdapterList adapter = new ClientAdapterList(this.getContext(), myFakeDataset);
 
-        adapter.add(new DataVictim("Francene_mac", "10.20.30.40", "12.35", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon01)));
-        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55", "4:21", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon02)));
-        adapter.add(new DataVictim("THIS", "55.55.42.55", "14:51", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon03)));
-        adapter.add(new DataVictim("OLD", "49.30.42.55", "7:48", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon04)));
-        adapter.add(new DataVictim("that", "889.30.42.55", "4:02", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon05)));
-        adapter.add(new DataVictim("Francene_mac", "10.20.30.40", "12.35", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon01)));
-        adapter.add(new DataVictim("Ines_iphone", "19.30.42.55", "4:21", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon02)));
-        adapter.add(new DataVictim("THIS", "55.55.42.55", "14:51", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon03)));
-        adapter.add(new DataVictim("OLD", "49.30.42.55", "7:48", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon04)));
-        adapter.add(new DataVictim("that", "889.30.42.55", "4:02", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon05)));
+        adapter.add(new DataClient("Francene_mac", "10.20.30.40", "12.35", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon01)));
+        adapter.add(new DataClient("Ines_iphone", "19.30.42.55", "4:21", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon02)));
+        adapter.add(new DataClient("THIS", "55.55.42.55", "14:51", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon03)));
+        adapter.add(new DataClient("OLD", "49.30.42.55", "7:48", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon04)));
+        adapter.add(new DataClient("that", "889.30.42.55", "4:02", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon05)));
+        adapter.add(new DataClient("Francene_mac", "10.20.30.40", "12.35", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon01)));
+        adapter.add(new DataClient("Ines_iphone", "19.30.42.55", "4:21", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon02)));
+        adapter.add(new DataClient("THIS", "55.55.42.55", "14:51", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon03)));
+        adapter.add(new DataClient("OLD", "49.30.42.55", "7:48", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon04)));
+        adapter.add(new DataClient("that", "889.30.42.55", "4:02", ContextCompat.getDrawable(this.getContext(), R.drawable.client_icon05)));
 
         ListView listView = rootView.findViewById(R.id.list_clients);
         listView.setAdapter(adapter);
@@ -62,16 +62,16 @@ public class FragmentTabVictims extends Fragment {
         return rootView;
     }
 
-    public class VictimAdapterList extends ArrayAdapter<DataVictim> {
-        public VictimAdapterList(Context context, ArrayList<DataVictim> my_items) {
+    public class ClientAdapterList extends ArrayAdapter<DataClient> {
+        public ClientAdapterList(Context context, ArrayList<DataClient> my_items) {
             super(context, 0, my_items);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            DataVictim my_items = getItem(position);
+            DataClient my_items = getItem(position);
             if (convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.carditem_victim, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.carditem_client, parent, false);
             }
 
             TextView clName = convertView.findViewById(R.id.client_name);

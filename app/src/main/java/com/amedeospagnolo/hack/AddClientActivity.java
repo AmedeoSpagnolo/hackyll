@@ -15,12 +15,12 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 
-public class AddVictimActivity extends AppCompatActivity {
+public class AddClientActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addvictim);
+        setContentView(R.layout.activity_addclient);
 
         // ADD TOOLBAR
         Toolbar toolbar = findViewById(R.id.detail_toolbar);

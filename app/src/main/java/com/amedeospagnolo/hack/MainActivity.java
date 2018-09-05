@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, AddVictimActivity.class);
+                Intent intent = new Intent(context, AddClientActivity.class);
                 context.startActivity(intent);
                 overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.actions_add_client) {
             Context context = MainActivity.this;
-            Intent intent = new Intent(MainActivity.this, AddVictimActivity.class);
+            Intent intent = new Intent(MainActivity.this, AddClientActivity.class);
             context.startActivity(intent);
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
