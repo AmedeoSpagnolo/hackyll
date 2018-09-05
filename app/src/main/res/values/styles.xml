@@ -29,7 +29,6 @@
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@android:color/white</item>
-        <corners android:radius="7dp"/>
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/colorPrimary</item>
