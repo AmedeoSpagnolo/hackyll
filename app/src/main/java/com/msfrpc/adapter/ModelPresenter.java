@@ -2,9 +2,9 @@ package com.msfrpc.adapter;
 
 import android.os.Handler;
 
-import com.msfdroid.rpc.Async;
-import com.msfdroid.rpc.RpcConnection;
-import com.msfdroid.rpc.RpcException;
+import com.msfrpc.rpc.Async;
+import com.msfrpc.rpc.RpcConnection;
+import com.msfrpc.rpc.RpcException;
 
 import java.util.LinkedList;
 import java.util.List;

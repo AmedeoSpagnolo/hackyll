@@ -2,8 +2,8 @@ package com.msfrpc.rpc;
 
 // Credits to scriptjunkie and rsmudge
 
-import com.msfdroid.model.MsfModel;
-import com.msfdroid.model.RpcServer;
+import com.msfrpc.model.MsfModel;
+import com.msfrpc.model.RpcServer;
 
 public class RpcConnection implements RpcConstants {
 

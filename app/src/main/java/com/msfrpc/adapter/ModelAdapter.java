@@ -9,12 +9,12 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-import com.msfdroid.MsfApplication;
-import com.msfdroid.MsfServerList;
-import com.msfdroid.R;
-import com.msfdroid.model.Console;
-import com.msfdroid.model.RpcServer;
-import com.msfdroid.model.Session;
+import com.msfrpc.MsfApplication;
+import com.msfrpc.MsfServerList;
+import com.msfrpc.R;
+import com.msfrpc.model.Console;
+import com.msfrpc.model.RpcServer;
+import com.msfrpc.model.Session;
 
 import java.util.HashMap;
 import java.util.List;

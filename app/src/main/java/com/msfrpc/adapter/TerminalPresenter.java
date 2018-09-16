@@ -2,11 +2,16 @@ package com.msfrpc.adapter;
 
 import android.os.Handler;
 
-import com.msfdroid.model.Terminal;
-import com.msfdroid.rpc.Async;
-import com.msfdroid.rpc.RpcConnection;
-import com.msfdroid.rpc.RpcConstants;
-import com.msfdroid.rpc.RpcException;
+import com.msfrpc.model.Terminal;
+import com.msfrpc.rpc.Async;
+import com.msfrpc.rpc.RpcConnection;
+import com.msfrpc.rpc.RpcConstants;
+import com.msfrpc.rpc.RpcException;
+import com.msfrpc.model.Terminal;
+import com.msfrpc.rpc.Async;
+import com.msfrpc.rpc.RpcConnection;
+import com.msfrpc.rpc.RpcConstants;
+import com.msfrpc.rpc.RpcException;
 
 import java.util.HashMap;
 import java.util.LinkedList;

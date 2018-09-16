@@ -1,7 +1,7 @@
 package com.msfrpc.model;
 
-import com.msfdroid.R;
-import com.msfdroid.rpc.RpcConnection;
+import com.msfrpc.R;
+import com.msfrpc.rpc.RpcConnection;
 
 public class RpcServer extends SavedRpcServer {
 

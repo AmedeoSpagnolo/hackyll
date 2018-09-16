@@ -2,7 +2,7 @@ package com.msfrpc.rpc;
 
 import android.util.Log;
 
-import com.msfdroid.BuildConfig;
+import com.msfrpc.BuildConfig;
 
 import org.msgpack.core.MessagePack;
 import org.msgpack.core.MessagePacker;

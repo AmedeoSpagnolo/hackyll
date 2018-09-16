@@ -3,15 +3,18 @@ package com.msfrpc;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.amedeospagnolo.hack.BuildConfig;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.msfdroid.model.DefaultRpcServer;
-import com.msfdroid.model.RpcServer;
-import com.msfdroid.model.SavedRpcServer;
-import com.msfdroid.rpc.Async;
-import com.msfdroid.rpc.LoginException;
-import com.msfdroid.rpc.RpcConnection;
-import com.msfdroid.rpc.RpcException;
+import com.msfrpc.model.DefaultRpcServer;
+import com.msfrpc.model.RpcServer;
+import com.msfrpc.model.SavedRpcServer;
+import com.msfrpc.rpc.Async;
+import com.msfrpc.rpc.LoginException;
+import com.msfrpc.rpc.RpcConnection;
+import com.msfrpc.rpc.RpcException;
+import com.msfrpc.model.DefaultRpcServer;
+import com.msfrpc.model.RpcServer;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

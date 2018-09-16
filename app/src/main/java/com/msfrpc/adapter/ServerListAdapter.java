@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
-import com.msfdroid.Msf;
-import com.msfdroid.MsfServerList;
-import com.msfdroid.R;
-import com.msfdroid.activities.ServerDetailActivity;
-import com.msfdroid.model.MsfModel;
-import com.msfdroid.model.RpcServer;
-import com.msfdroid.view.RpcServerView;
+import com.msfrpc.Msf;
+import com.msfrpc.MsfServerList;
+import com.msfrpc.R;
+import com.msfrpc.activities.ServerDetailActivity;
+import com.msfrpc.model.MsfModel;
+import com.msfrpc.model.RpcServer;
+import com.msfrpc.view.RpcServerView;
 
 import java.util.List;
 

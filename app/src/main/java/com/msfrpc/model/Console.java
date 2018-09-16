@@ -1,6 +1,6 @@
 package com.msfrpc.model;
 
-public class Console extends com.msfdroid.model.RpcObject {
+public class Console extends com.msfrpc.model.RpcObject {
 
     public String id;
 

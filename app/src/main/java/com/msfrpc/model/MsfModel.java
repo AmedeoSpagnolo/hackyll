@@ -1,6 +1,7 @@
 package com.msfrpc.model;
 
-import com.msfdroid.rpc.RpcConstants;
+import com.msfrpc.rpc.RpcConstants;
+import com.msfrpc.rpc.RpcConstants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
