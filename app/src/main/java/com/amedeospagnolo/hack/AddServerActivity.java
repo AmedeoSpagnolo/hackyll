@@ -57,6 +57,7 @@ public class AddServerActivity extends AppCompatActivity {
             submit_server.setText("Save");
             submit_server.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    // to do: logic save changes
                     Context context = AddServerActivity.this;
                     Intent intent = new Intent(context, MainActivity.class);
                     context.startActivity(intent);
@@ -71,6 +72,7 @@ public class AddServerActivity extends AppCompatActivity {
             submit_server.setText("Add Server");
             submit_server.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    // to do: logic add server
                     Context context = AddServerActivity.this;
                     Intent intent = new Intent(context, MainActivity.class);
                     context.startActivity(intent);
