@@ -1,6 +1,6 @@
 package com.msfrpc.model;
 
-import com.msfrpc.R;
+import com.amedeospagnolo.hack.R;
 import com.msfrpc.rpc.RpcConnection;
 
 public class RpcServer extends SavedRpcServer {

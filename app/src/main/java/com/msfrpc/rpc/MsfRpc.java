@@ -2,7 +2,8 @@ package com.msfrpc.rpc;
 
 import android.util.Log;
 
-import com.msfrpc.BuildConfig;
+
+import com.amedeospagnolo.hack.BuildConfig;
 
 import org.msgpack.core.MessagePack;
 import org.msgpack.core.MessagePacker;
