@@ -31,6 +31,18 @@ public class MsfTest extends AndroidTestCase {
         assertNotNull(rpcServer.getModel().getSessions());
     }
 
+    public void testLoginAndSession() throws Exception {
+        if (rpcServer == null) {
+            rpcServer = testLogin();
+        }
+
+        rpcServer.getRpc().updateModel();
+        assertNotNull(rpcServer.getModel().getConsoles());
+        assertNotNull(rpcServer.getModel().getJobs());
+        assertNotNull(rpcServer.getModel().getSessions());
+        assertTrue(rpcServer.getModel().getSessions().size() > 0);
+    }
+
 
 //    public void skipTestLoginTwoServers() {
 //        Msf msf = new Msf();
