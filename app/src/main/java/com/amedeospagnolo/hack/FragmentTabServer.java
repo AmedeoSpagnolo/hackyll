@@ -30,11 +30,6 @@ public class FragmentTabServer extends Fragment {
 
         MsfServerList msfServerList = MsfApplication.Msf().msfServerList;
         ServerListAdapter serverListAdapter = new ServerListAdapter(getActivity(), msfServerList.getServerList());
-        // add fake data
-//        FragmentTabServer.ServerAdapterList adapter = new FragmentTabServer.ServerAdapterList(this.getContext(), myFakeDataset);
-//        adapter.add(new DataServer("My Server", "44.38.450.40", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_custom), false));
-//        adapter.add(new DataServer("Test Server", "21.43.26.80", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_test),false));
-//        adapter.add(new DataServer("Hackyll Server", "124.88.0.40", "00:00:00", ContextCompat.getDrawable(this.getContext(), R.drawable.server_hackyll),true));
         ListView listView = rootView.findViewById(R.id.list_servers);
         listView.setAdapter(serverListAdapter);
 
@@ -44,8 +39,7 @@ public class FragmentTabServer extends Fragment {
                 String srIp = myFakeDataset.get(position).ip;
                 Context context = getContext();
                 Intent intent = new Intent(context, ServerActivity.class);
-                intent.putExtra("server_name", srName);
-                intent.putExtra("server_ip", srIp);
+                intent.putExtra("server_id", position);
                 if (context != null) context.startActivity(intent);
                 // overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }

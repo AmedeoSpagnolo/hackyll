@@ -29,6 +29,14 @@ public class SavedRpcServer {
         return stringBuffer.toString();
     }
 
+    public static String serverName(SavedRpcServer savedRpcServer) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(savedRpcServer.rpcHost);
+        stringBuffer.append(":");
+        stringBuffer.append(savedRpcServer.rpcPort);
+        return stringBuffer.toString();
+    }
+
     public static SavedRpcServer fromString(String uriString) {
         Uri uri = Uri.parse(uriString);
         SavedRpcServer savedRpcServer = new SavedRpcServer();

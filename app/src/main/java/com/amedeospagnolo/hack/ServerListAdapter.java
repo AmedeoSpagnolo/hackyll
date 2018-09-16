@@ -2,6 +2,7 @@ package com.amedeospagnolo.hack;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,21 +68,15 @@ public class ServerListAdapter extends ArrayAdapter<RpcServer> {
 
 
         RpcServer item = getItem(position);
-            TextView clName = rowView.findViewById(R.id.server_name);
-        String name = SavedRpcServer.serverString(item);
-            clName.setText(name);
 
-//            TextView clIp = convertView.findViewById(R.id.server_ip);
-//            clIp.setText(my_items.ip);
-//
-//            TextView clTime = convertView.findViewById(R.id.server_time);
-//            clTime.setText(my_items.time);
-//
-//            ImageView clImage = convertView.findViewById(R.id.server_image);
-//            clImage.setImageDrawable(my_items.avatar);
-//
-//            LinearLayout shop = convertView.findViewById(R.id.server_shop);
-//            if (!my_items.has_shop) shop.setVisibility(View.GONE);
+        ImageView clImage = rowView.findViewById(R.id.server_image);
+        clImage.setImageResource(R.drawable.server_hackyll);
+
+        TextView clName = rowView.findViewById(R.id.server_name);
+        clName.setText(SavedRpcServer.serverName(item));
+
+        TextView clStatus = rowView.findViewById(R.id.server_status);
+        clStatus.setText(item.getStatusString());
 
 //        holder.rpcServerView.updateView(item);
 //        holder.imageviewDelete.setTag(position);
