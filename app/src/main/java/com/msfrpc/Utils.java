@@ -1,4 +1,4 @@
-package com.msfdroid;
+package com.msfrpc;
 
 public class Utils {
 

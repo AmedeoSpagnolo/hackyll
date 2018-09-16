@@ -1,4 +1,4 @@
-package com.msfdroid;
+package com.msfrpc;
 
 import android.content.Context;
 import android.content.SharedPreferences;

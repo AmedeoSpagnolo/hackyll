@@ -1,7 +1,9 @@
-package com.msfdroid;
+package com.msfrpc;
 
 
 import android.app.Application;
+
+import com.msfrpc.Msf;
 
 public class MsfApplication extends Application {
 
