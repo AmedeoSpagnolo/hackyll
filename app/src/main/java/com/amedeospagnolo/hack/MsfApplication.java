@@ -1,5 +1,4 @@
-package com.msfrpc;
-
+package com.amedeospagnolo.hack;
 
 import android.app.Application;
 

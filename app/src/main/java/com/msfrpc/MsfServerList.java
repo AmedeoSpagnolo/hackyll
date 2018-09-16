@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.amedeospagnolo.hack.BuildConfig;
+import com.amedeospagnolo.hack.MsfApplication;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.msfrpc.model.DefaultRpcServer;

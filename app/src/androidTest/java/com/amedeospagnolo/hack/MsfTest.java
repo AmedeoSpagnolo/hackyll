@@ -2,9 +2,12 @@ package com.amedeospagnolo.hack;
 
 import android.test.AndroidTestCase;
 
+import com.msfrpc.Msf;
+import com.msfrpc.model.DefaultRpcServer;
+import com.msfrpc.model.RpcServer;
+
 public class MsfTest extends AndroidTestCase {
 
-    /*
     protected RpcServer rpcServer;
 
     public static RpcServer testLogin() throws Exception {
@@ -26,9 +29,8 @@ public class MsfTest extends AndroidTestCase {
         assertNotNull(rpcServer.getModel().getConsoles());
         assertNotNull(rpcServer.getModel().getJobs());
         assertNotNull(rpcServer.getModel().getSessions());
-        assertTrue(rpcServer.getModel().getSessions().size() > 0);
     }
-*/
+
 
 //    public void skipTestLoginTwoServers() {
 //        Msf msf = new Msf();
