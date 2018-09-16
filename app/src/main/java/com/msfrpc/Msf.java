@@ -40,6 +40,9 @@ public class Msf {
             if (rpcConnection == null) {
                 continue;
             }
+            if (rpcConnection.getModel().getSessions() == null) {
+                continue;
+            }
             for (Session session : rpcConnection.getModel().getSessions()) {
                 rpcSessionList.add(new RpcSession(rpcServer, session));
             }
