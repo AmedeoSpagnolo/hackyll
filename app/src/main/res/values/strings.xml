@@ -29,6 +29,12 @@
     <string name="info_text_02">More than half of all website traffic comes from mobile devices. It’s time to move Penetration Testing tools on mobile as well.</string>
     <string name="info_text_03">As many platform out there this one is not born with an offesive purpose. Choose the bright way. Hackyll is not responsable for any illegal use.</string>
 
+    <string name="rpc_status_new"> </string>
+    <string name="rpc_status_connecting">Connecting…</string>
+    <string name="rpc_status_authorised">Authorised</string>
+    <string name="rpc_status_connected">Connected</string>
+    <string name="rpc_status_connection_failed">Connection failed</string>
+
     <string name="payload_example"># windows/shell_bind_tcp - 341 bytes
 # http://www.metasploit.com
 # VERBOSE=false, LPORT=1234, RHOST=, EXITFUNC=seh,
