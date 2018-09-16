@@ -1,4 +1,5 @@
 package com.msfrpc.model;
+
 import com.amedeospagnolo.hack.R;
 import com.msfrpc.rpc.RpcConnection;
 
