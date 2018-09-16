@@ -1,5 +1,6 @@
 package com.amedeospagnolo.hack;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -44,7 +45,7 @@ public class AddServerActivity extends AppCompatActivity {
             edit_text_host.setText(rpcServer.rpcHost);
 
             EditText edit_text_port = findViewById(R.id.edit_text_port);
-            edit_text_port.setText(Integer.toString(rpcServer.rpcPort));
+            edit_text_port.setText(String.valueOf(rpcServer.rpcPort));
 
             EditText edit_text_user = findViewById(R.id.edit_text_user);
             edit_text_user.setText(rpcServer.rpcUser);
@@ -54,12 +55,28 @@ public class AddServerActivity extends AppCompatActivity {
 
             Button submit_server = findViewById(R.id.submit_server);
             submit_server.setText("Save");
+            submit_server.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Context context = AddServerActivity.this;
+                    Intent intent = new Intent(context, MainActivity.class);
+                    context.startActivity(intent);
+                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_right);
+                }
+            });
 
         } else {
             setTitle("Add Server");
 
             Button submit_server = findViewById(R.id.submit_server);
             submit_server.setText("Add Server");
+            submit_server.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Context context = AddServerActivity.this;
+                    Intent intent = new Intent(context, MainActivity.class);
+                    context.startActivity(intent);
+                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_right);
+                }
+            });
         }
 
     }
