@@ -44,7 +44,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edittext_ip"
+                android:id="@+id/edit_text_host"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -67,6 +67,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/edit_text_port"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -89,6 +90,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/edit_text_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -111,6 +113,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/edit_text_passwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -141,7 +144,7 @@
             android:padding="10dp">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/submit_server"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="@drawable/button_round_corner"

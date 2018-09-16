@@ -36,7 +36,7 @@ public class FragmentTabServer extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3){
                 Context context = getContext();
                 Intent intent = new Intent(context, AddServerActivity.class);
-                intent.putExtra("server_id", position);
+                intent.putExtra("position", position);
                 if (context != null) context.startActivity(intent);
                 // overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
