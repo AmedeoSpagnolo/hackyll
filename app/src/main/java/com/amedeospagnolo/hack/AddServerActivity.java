@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.msfrpc.MsfServerList;
+import com.msfrpc.model.RpcServer;
 
 public class AddServerActivity extends AppCompatActivity {
 
@@ -12,6 +17,18 @@ public class AddServerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addserver);
+
+
+        EditText editTextName = findViewById(R.id.edittext_ip);
+
+        MsfServerList msfServerList = MsfApplication.Msf().msfServerList;
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            int position = extras.getInt("server_id");
+            RpcServer rpcServer = msfServerList.getServerList().get(position);
+            editTextName.setText(rpcServer.rpcHost);
+        }
+
 
         // ADD TOOLBAR
         Toolbar toolbar = findViewById(R.id.detail_toolbar);

@@ -16,12 +16,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.msfrpc.MsfServerList;
+import com.msfrpc.model.RpcServer;
 
 import java.util.ArrayList;
 
 public class FragmentTabServer extends Fragment {
-    public ArrayList<DataServer> myFakeDataset = new ArrayList<DataServer>();
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,16 +28,14 @@ public class FragmentTabServer extends Fragment {
 
 
         MsfServerList msfServerList = MsfApplication.Msf().msfServerList;
-        ServerListAdapter serverListAdapter = new ServerListAdapter(getActivity(), msfServerList.getServerList());
+        final ServerListAdapter serverListAdapter = new ServerListAdapter(getActivity(), msfServerList.getServerList());
         ListView listView = rootView.findViewById(R.id.list_servers);
         listView.setAdapter(serverListAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3){
-                String srName = myFakeDataset.get(position).name;
-                String srIp = myFakeDataset.get(position).ip;
                 Context context = getContext();
-                Intent intent = new Intent(context, ServerActivity.class);
+                Intent intent = new Intent(context, AddServerActivity.class);
                 intent.putExtra("server_id", position);
                 if (context != null) context.startActivity(intent);
                 // overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
