@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.msfrpc.MsfServerList;
+
 import java.util.ArrayList;
 
 public class FragmentTabServer extends Fragment {
@@ -25,13 +27,16 @@ public class FragmentTabServer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tab_server, container, false);
 
+
+        MsfServerList msfServerList = MsfApplication.Msf().msfServerList;
+        ServerListAdapter serverListAdapter = new ServerListAdapter(getActivity(), msfServerList.getServerList());
         // add fake data
-        FragmentTabServer.ServerAdapterList adapter = new FragmentTabServer.ServerAdapterList(this.getContext(), myFakeDataset);
-        adapter.add(new DataServer("My Server", "44.38.450.40", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_custom), false));
-        adapter.add(new DataServer("Test Server", "21.43.26.80", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_test),false));
-        adapter.add(new DataServer("Hackyll Server", "124.88.0.40", "00:00:00", ContextCompat.getDrawable(this.getContext(), R.drawable.server_hackyll),true));
+//        FragmentTabServer.ServerAdapterList adapter = new FragmentTabServer.ServerAdapterList(this.getContext(), myFakeDataset);
+//        adapter.add(new DataServer("My Server", "44.38.450.40", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_custom), false));
+//        adapter.add(new DataServer("Test Server", "21.43.26.80", "", ContextCompat.getDrawable(this.getContext(), R.drawable.server_test),false));
+//        adapter.add(new DataServer("Hackyll Server", "124.88.0.40", "00:00:00", ContextCompat.getDrawable(this.getContext(), R.drawable.server_hackyll),true));
         ListView listView = rootView.findViewById(R.id.list_servers);
-        listView.setAdapter(adapter);
+        listView.setAdapter(serverListAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3){
@@ -49,6 +54,7 @@ public class FragmentTabServer extends Fragment {
         return rootView;
     }
 
+    /*
     public class ServerAdapterList extends ArrayAdapter<DataServer> {
         public ServerAdapterList(Context context, ArrayList<DataServer> my_items) {
             super(context, 0, my_items);
@@ -80,5 +86,6 @@ public class FragmentTabServer extends Fragment {
             return convertView;
         }
     }
+    */
 
 }
