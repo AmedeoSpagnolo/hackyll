@@ -16,12 +16,18 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
     public int CLIENT_TAB = 0;
     public int SERVER_TAB = 1;
-    public int LAST_TAB = 0;
+    public int LAST_TAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null){
+            LAST_TAB = savedInstanceState.getInt("last_tab");
+        } else {
+            LAST_TAB = 0;
+        }
 
         // toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -119,12 +125,6 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt("last_tab", LAST_TAB);
         super.onSaveInstanceState(outState);
     }
-
-//    @Override
-//    public void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        LAST_TAB = savedInstanceState.getInt("last_tab");
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
