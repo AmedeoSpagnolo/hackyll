@@ -16,6 +16,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
     public int CLIENT_TAB = 0;
     public int SERVER_TAB = 1;
+    public int LAST_TAB = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +65,21 @@ public class MainActivity extends AppCompatActivity {
         final pagerAdapter adapter = new pagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(0);
+
+//        if (LAST_TAB != -1) {
+//            viewPager.setCurrentItem(LAST_TAB);
+//        } else {
+//            viewPager.setCurrentItem(0);
+//            LAST_TAB = 0;
+//        }
+
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                LAST_TAB = tab.getPosition();
                 choose_right_fab(tab.getPosition());
             }
 
@@ -102,6 +113,18 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("last_tab", LAST_TAB);
+        super.onSaveInstanceState(outState);
+    }
+
+//    @Override
+//    public void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        LAST_TAB = savedInstanceState.getInt("last_tab");
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
