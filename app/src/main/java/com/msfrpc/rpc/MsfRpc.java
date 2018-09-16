@@ -1,4 +1,4 @@
-package com.msfdroid.rpc;
+package com.msfrpc.rpc;
 
 import android.util.Log;
 

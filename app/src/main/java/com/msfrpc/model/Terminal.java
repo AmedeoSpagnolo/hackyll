@@ -1,4 +1,4 @@
-package com.msfdroid.model;
+package com.msfrpc.model;
 
 public class Terminal extends RpcObject {
 

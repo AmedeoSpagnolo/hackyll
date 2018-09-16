@@ -1,6 +1,6 @@
-package com.msfdroid.rpc;
+package com.msfrpc.rpc;
 
-public class LoginException extends RpcException {
+public class LoginException extends com.msfdroid.rpc.RpcException {
     public static final String LOGIN_FAILED = "Login Failed";
 
     public LoginException() {

@@ -1,4 +1,4 @@
-package com.msfdroid.model;
+package com.msfrpc.model;
 
 import java.util.ArrayList;
 import java.util.List;

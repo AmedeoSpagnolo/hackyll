@@ -1,4 +1,4 @@
-package com.msfdroid.adapter;
+package com.msfrpc.adapter;
 
 import android.os.Handler;
 

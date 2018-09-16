@@ -1,4 +1,4 @@
-package com.msfdroid.adapter;
+package com.msfrpc.adapter;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;

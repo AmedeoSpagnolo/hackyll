@@ -1,4 +1,4 @@
-package com.msfdroid.model;
+package com.msfrpc.model;
 
 import com.msfdroid.R;
 import com.msfdroid.rpc.RpcConnection;

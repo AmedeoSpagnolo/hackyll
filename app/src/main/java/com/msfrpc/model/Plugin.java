@@ -1,4 +1,4 @@
-package com.msfdroid.model;
+package com.msfrpc.model;
 
 import android.content.Intent;
 
