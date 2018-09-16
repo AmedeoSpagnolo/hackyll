@@ -18,7 +18,6 @@ public class AddServerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addserver);
 
-
         EditText editTextName = findViewById(R.id.edittext_ip);
 
         MsfServerList msfServerList = MsfApplication.Msf().msfServerList;
@@ -27,6 +26,9 @@ public class AddServerActivity extends AppCompatActivity {
             int position = extras.getInt("server_id");
             RpcServer rpcServer = msfServerList.getServerList().get(position);
             editTextName.setText(rpcServer.rpcHost);
+            setTitle("Edit Server");
+        } else {
+            setTitle("Add Server");
         }
 
 
