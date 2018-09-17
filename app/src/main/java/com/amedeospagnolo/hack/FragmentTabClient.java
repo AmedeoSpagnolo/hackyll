@@ -92,19 +92,16 @@ public class FragmentTabClient extends Fragment implements ModelPresenter.Update
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.carditem_client, parent, false);
             }
 
-            TextView clName = convertView.findViewById(R.id.client_name);
-            clName.setText(rpcSession.session.id);
-
             String ip = (String) rpcSession.session.fields.get("tunnel_peer");
             TextView clIp = convertView.findViewById(R.id.client_ip);
             clIp.setText(ip);
 
+            String info = (String) rpcSession.session.fields.get("tunnel_peer");
+            TextView clInfo = convertView.findViewById(R.id.client_info);
+            clInfo.setText(info);
 
-//            TextView clTime = convertView.findViewById(R.id.client_time);
-//            clTime.setText(type);
-//
-//            ImageView clImage = convertView.findViewById(R.id.client_image);
-//            clImage.setImageDrawable(my_items.avatar);
+            ImageView clImage = convertView.findViewById(R.id.client_image);
+            clImage.setImageResource(R.drawable.client_icon01);
 
             return convertView;
         }

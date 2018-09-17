@@ -47,14 +47,14 @@
             tools:layout_editor_absoluteY="10dp">
 
             <TextView
-                android:id="@+id/client_name"
+                android:id="@+id/client_ip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 tools:text="name" />
 
             <TextView
-                android:id="@+id/client_ip"
+                android:id="@+id/client_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
