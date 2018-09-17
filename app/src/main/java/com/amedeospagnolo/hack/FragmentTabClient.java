@@ -92,11 +92,11 @@ public class FragmentTabClient extends Fragment implements ModelPresenter.Update
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.carditem_client, parent, false);
             }
 
-            String ip = (String) rpcSession.session.fields.get("tunnel_peer");
+            String ip = rpcSession.getIp();
             TextView clIp = convertView.findViewById(R.id.client_ip);
             clIp.setText(ip);
 
-            String info = (String) rpcSession.session.fields.get("tunnel_peer");
+            String info = rpcSession.getInfo();
             TextView clInfo = convertView.findViewById(R.id.client_info);
             clInfo.setText(info);
 

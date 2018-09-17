@@ -37,6 +37,7 @@ import javax.net.ssl.X509TrustManager;
 
 public class MsfRpc {
 
+    private boolean log_enabled = false;
     private static int TIMEOUT = 5000;
     private URL u;
 
@@ -188,7 +189,7 @@ public class MsfRpc {
      */
     private Map exec(String methname, Object[] params) throws RpcException {
 
-        if (BuildConfig.DEBUG) {
+        if (log_enabled && BuildConfig.DEBUG) {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("cmd: ");
             stringBuilder.append(methname);
@@ -203,8 +204,8 @@ public class MsfRpc {
             writeCall(methname, params);
             Object response = readResp();
 
-            if (BuildConfig.DEBUG) {
-                Log.e(MsfRpc.class.getSimpleName(), "result " + response);
+            if (log_enabled && BuildConfig.DEBUG) {
+//                Log.e(MsfRpc.class.getSimpleName(), "result " + response);
             }
 
             if (response instanceof Map) {
