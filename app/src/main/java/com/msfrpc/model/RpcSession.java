@@ -10,4 +10,13 @@ public class RpcSession  {
         this.session = session;
         this.rpcServer = rpcServer;
     }
+
+    public String getInformation() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(session.description);
+        stringBuilder.append(" ");
+        String ip = (String)session.fields.get("tunnel_peer");
+        stringBuilder.append(ip);
+        return stringBuilder.toString();
+    }
 }

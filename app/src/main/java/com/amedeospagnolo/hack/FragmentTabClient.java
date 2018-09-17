@@ -95,9 +95,8 @@ public class FragmentTabClient extends Fragment implements ModelPresenter.Update
             TextView clName = convertView.findViewById(R.id.client_name);
             clName.setText(rpcSession.session.id);
 
-            String ip = (String) rpcSession.session.fields.get("tunnel_peer");
             TextView clIp = convertView.findViewById(R.id.client_ip);
-            clIp.setText(ip);
+            clIp.setText(rpcSession.getInformation());
 
 
 //            TextView clTime = convertView.findViewById(R.id.client_time);
