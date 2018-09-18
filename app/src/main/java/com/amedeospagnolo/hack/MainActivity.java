@@ -2,13 +2,13 @@ package com.amedeospagnolo.hack;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,28 +23,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState != null){
-            LAST_TAB = savedInstanceState.getInt("last_tab");
-        } else {
-            LAST_TAB = 0;
-        }
+        // SharedPreferences init
+        Context context = MainActivity.this;
+        SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        // toolbar
+        // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // tablayout
+        // TabLayout
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("clients"));
         tabLayout.addTab(tabLayout.newTab().setText("servers"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        // floating buttons
+        // FloatingActionButton Client
         FloatingActionButton fabClient = findViewById(R.id.fab_client);
-        FloatingActionButton fabServer = findViewById(R.id.fab_server);
-
         fabClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
         });
+
+        // FloatingActionButton Server
+        FloatingActionButton fabServer = findViewById(R.id.fab_server);
         fabServer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,30 +62,40 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
         });
-        int tab_position = tabLayout.getSelectedTabPosition();
-        choose_right_fab(tab_position);
 
         // viewpager (related to tablayout)
         final ViewPager viewPager = findViewById(R.id.pager);
-        final pagerAdapter adapter = new pagerAdapter
-                (getSupportFragmentManager(), tabLayout.getTabCount());
+        final pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(0);
 
-//        if (LAST_TAB != -1) {
-//            viewPager.setCurrentItem(LAST_TAB);
-//        } else {
-//            viewPager.setCurrentItem(0);
-//            LAST_TAB = 0;
-//        }
+        int active_tab = sharedPref.getInt("lasttab", 0);
+        LAST_TAB = active_tab;
+        viewPager.setCurrentItem(LAST_TAB);
+
+
+        System.err.println("#############");
+        System.err.println("init_______________");
+        System.err.println(LAST_TAB);
+        System.err.println(viewPager.getCurrentItem());
+        System.err.println("init_______________");
+
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                LAST_TAB = tab.getPosition();
                 choose_right_fab(tab.getPosition());
+                Context context = MainActivity.this;
+                SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = sharedPref.edit();
+                edit.putInt("lasttab", tab.getPosition());
+                edit.apply();
+                LAST_TAB = tab.getPosition();
+                System.err.println("_______________");
+                System.err.println("_______________");
+                System.err.println(tab.getPosition());
+                System.err.println(LAST_TAB);
             }
 
             @Override
@@ -118,12 +127,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putInt("last_tab", LAST_TAB);
-        super.onSaveInstanceState(outState);
     }
 
     @Override
