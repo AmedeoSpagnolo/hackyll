@@ -18,21 +18,19 @@ public class MainActivity extends AppCompatActivity {
     public int SERVER_TAB = 1;
     public int LAST_TAB;
 
+    private SharedPreferences sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // SharedPreferences init
-        Context context = MainActivity.this;
-        SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
+        sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         // TabLayout
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("clients"));
@@ -68,16 +66,6 @@ public class MainActivity extends AppCompatActivity {
         final pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
-        int active_tab = sharedPref.getInt("lasttab", 0);
-        LAST_TAB = active_tab;
-        viewPager.setCurrentItem(LAST_TAB);
-
-
-        System.err.println("#############");
-        System.err.println("init_______________");
-        System.err.println(LAST_TAB);
-        System.err.println(viewPager.getCurrentItem());
-        System.err.println("init_______________");
 
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -85,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                choose_right_fab(tab.getPosition());
+//                choose_right_fab(tab.getPosition());
                 Context context = MainActivity.this;
                 SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = sharedPref.edit();
@@ -105,6 +93,22 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {}
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+
+        int active_tab = sharedPref.getInt("lasttab", 0);
+        LAST_TAB = active_tab;
+        final ViewPager viewPager = findViewById(R.id.pager);
+        viewPager.setCurrentItem(LAST_TAB);
+
+        System.err.println("#############");
+        System.err.println("init_______________");
+        System.err.println(LAST_TAB);
+        System.err.println(viewPager.getCurrentItem());
+        System.err.println("init_______________");
+        super.onResume();
     }
 
     public void choose_right_fab(int pos){
