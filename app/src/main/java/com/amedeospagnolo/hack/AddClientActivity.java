@@ -51,7 +51,7 @@ public class AddClientActivity extends AppCompatActivity {
 
     }
 
-    public void onButtonShowPopupWindowClick(View view) {
+    public void popupSharePayload(View view) {
 
         // inflate the layout of the popup window
         LayoutInflater inflater = (LayoutInflater)

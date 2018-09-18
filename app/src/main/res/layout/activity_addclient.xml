@@ -140,7 +140,7 @@
                 android:paddingRight="20dp"
                 android:text="Share Payload"
                 android:textAllCaps="false"
-                android:onClick="onButtonShowPopupWindowClick"
+                android:onClick="popupSharePayload"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
