@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
         }
-        
+
         return super.onOptionsItemSelected(item);
     }
 
