@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         // SharedPreferences init
         Context context = MainActivity.this;
         SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        LAST_TAB = sharedPref.getInt("lasttab", 0);
 
         // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("clients"));
         tabLayout.addTab(tabLayout.newTab().setText("servers"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        // viewpager (related to tablayout)
+        final ViewPager viewPager = findViewById(R.id.pager);
+        final pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
 
         // FloatingActionButton Client
         FloatingActionButton fabClient = findViewById(R.id.fab_client);
@@ -63,64 +69,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // viewpager (related to tablayout)
-        final ViewPager viewPager = findViewById(R.id.pager);
-        final pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
-
-        int active_tab = sharedPref.getInt("lasttab", 0);
-        LAST_TAB = active_tab;
-        viewPager.setCurrentItem(LAST_TAB);
-
-
-        System.err.println("#############");
-        System.err.println("init_______________");
-        System.err.println(LAST_TAB);
-        System.err.println(viewPager.getCurrentItem());
-        System.err.println("init_______________");
-
+        toggleTab(LAST_TAB);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-                choose_right_fab(tab.getPosition());
-                Context context = MainActivity.this;
-                SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor edit = sharedPref.edit();
-                edit.putInt("lasttab", tab.getPosition());
-                edit.apply();
-                LAST_TAB = tab.getPosition();
-                System.err.println("_______________");
-                System.err.println("_______________");
-                System.err.println(tab.getPosition());
-                System.err.println(LAST_TAB);
+                toggleTab(tab.getPosition());
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {}
+            public void onTabReselected(TabLayout.Tab tab) {
+                toggleTab(tab.getPosition());
+            }
         });
-
-    }
-
-    public void choose_right_fab(int pos){
-        FloatingActionButton fabClient = findViewById(R.id.fab_client);
-        FloatingActionButton fabServer = findViewById(R.id.fab_server);
-        if (pos == SERVER_TAB) {
-            fabClient.hide();
-            fabServer.show();
-        }
-        else if (pos == CLIENT_TAB){
-            fabClient.show();
-            fabServer.hide();
-        } else {
-            fabClient.hide();
-            fabServer.hide();
-        }
     }
 
     @Override
@@ -130,9 +95,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        Context context = MainActivity.this;
+        SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        LAST_TAB = sharedPref.getInt("lasttab", 0);
+        toggleTab(LAST_TAB);
+    }
+
+    private void toggleTab(int pos) {
+        // change page
+        final ViewPager viewPager = findViewById(R.id.pager);
+        viewPager.setCurrentItem(pos);
+
+        // update lasttab
+        Context context = MainActivity.this;
+        SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPref.edit();
+        edit.putInt("lasttab", pos);
+        edit.apply();
+
+        // floating button
+        FloatingActionButton fabClient = findViewById(R.id.fab_client);
+        FloatingActionButton fabServer = findViewById(R.id.fab_server);
+        if (pos == SERVER_TAB) { fabClient.hide(); fabServer.show(); }
+        else if (pos == CLIENT_TAB){ fabClient.show(); fabServer.hide(); }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_settings) {
             Context context = MainActivity.this;
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
@@ -170,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
