@@ -73,17 +73,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-//                choose_right_fab(tab.getPosition());
+                choose_right_fab(tab.getPosition());
                 Context context = MainActivity.this;
                 SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = sharedPref.edit();
                 edit.putInt("lasttab", tab.getPosition());
                 edit.apply();
                 LAST_TAB = tab.getPosition();
-                System.err.println("_______________");
-                System.err.println("_______________");
-                System.err.println(tab.getPosition());
-                System.err.println(LAST_TAB);
             }
 
             @Override
@@ -102,12 +98,7 @@ public class MainActivity extends AppCompatActivity {
         LAST_TAB = active_tab;
         final ViewPager viewPager = findViewById(R.id.pager);
         viewPager.setCurrentItem(LAST_TAB);
-
-        System.err.println("#############");
-        System.err.println("init_______________");
-        System.err.println(LAST_TAB);
-        System.err.println(viewPager.getCurrentItem());
-        System.err.println("init_______________");
+        choose_right_fab(LAST_TAB);
         super.onResume();
     }
 
@@ -120,9 +111,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos == CLIENT_TAB){
             fabClient.show();
-            fabServer.hide();
-        } else {
-            fabClient.hide();
             fabServer.hide();
         }
     }
