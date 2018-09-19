@@ -105,7 +105,7 @@
                         android:scaleType="fitCenter" />
                 </LinearLayout>
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/myNewMessageBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
