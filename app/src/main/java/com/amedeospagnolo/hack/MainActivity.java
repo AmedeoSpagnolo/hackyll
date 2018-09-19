@@ -12,11 +12,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AutoCompleteTextView;
 
 public class MainActivity extends AppCompatActivity {
     public int CLIENT_TAB = 0;
     public int SERVER_TAB = 1;
     public int LAST_TAB;
+    AutoCompleteTextView autocomplete;
+
+    String[] arr = { "Paries,France", "PA,United States","Parana,Brazil",
+            "Padua,Italy", "Pasadena,CA,United States"};
 
     private SharedPreferences sharedPref;
 
