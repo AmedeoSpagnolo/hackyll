@@ -108,6 +108,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <service android:name=".MyInputMethodService"
+            android:label="Hackyllboard"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data android:name="android.view.im"
+                android:resource="@layout/method" />
+        </service>
+        <!-- Optional: an activity for controlling the IME settings -->
+        <!--<activity android:name="FastInputIMESettings"-->
+            <!--android:label="@string/fast_input_settings">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
     </application>
 
 </manifest>
