@@ -39,7 +39,7 @@ public class ClientActivity extends AppCompatActivity {
     private TextView clIp;
     AutoCompleteTextView autocomplete;
 
-    String[] arr = {"cd /home &nbsp;","cd ..​","cd ../..","cd ​","cd ~user","cd -​","cp file1 file2","cp dir/* .","cp -a /tmp/dir1 .","cp -a dir1 dir2","cp file file1 ","ln -s file1 lnk1","ln file1 lnk1","ls","ls -F","ls -l","ls -a","ls *[0-9]*","lstree","mkdir dir1","mkdir dir1 dir2","mkdir -p /tmp/dir1/dir2","mv dir/file /new_path","pwd","rm -f file1","rm -rf dir1","rm -rf dir1 dir2","rmdir dir1","touch -t 0712250000 file1","tree","top","htop","ps","pstree","who","kill","pkill &amp; killall","pgrep","nice","renice","pidof","df","free","chmod 755 Linux_Directory chmod 644 Linux_File","rwx rwx rwx = 111 111 111","​rw- rw- rw- = 110 110 110","rwx --- --- = 111 000 000​","rwx = 111 in binary = 7","rw- = 110 in binary ​= 6","r-x = 101 in binary = 5","r-- = 100 in binary = 4​","777 (rwxrwxrwx)","755 (rwxr-xr-x)","700 (rwx------)","666 (rw-rw-rw-)","644 (rw-r--r--)","600 (rw-------)","find -name 'File1'","find -iname 'File1'","find /path -type f -name '*.conf'","find /path -size 50c","find /path -size -50c","find / -size +700M","find / -mtime 1","find / -atime -1","find / -ctime +3","find / -mmin -1","find / -perm 644","find / -perm -644","wc -l file_name OR cat file_name | wc -l","wc -w","wc -c","wc -m","wc -L","tar -cvf compress.tar /path/directory","tar -tvf compress.tar","tar -xvf compress.tar","tar -xvf compress.tar -C /path/to diretory","tar -xvf compress.tar file1.txt","tar -xvf compress.tar 'file 1' 'file 2'","tar -xvf compress.tar --wildcards '*.txt' ","tar -rvf compress.tar file/dir","tar -cvzf compresstar.gz /path/directory","tar -tvf compress.tar.gz","tar -zxvf compress.tar.gz","tar -zxvf compress.tar.gz -C /path/to diretory","tar -zxvf compress.tar.gz file1.txt","tar -zxvf compress.tar.gz 'file 1' 'file 2'","tar -zxvf compress.tar.gz --wildcards '*.tzt'","tar -rvf compress.tar.gz file/dir","tar -cvfj compress.tar.bz2 /path/directory","tar -tvf compress.tar.bz2","tar -xvf compress.tar.bz2","tar -jxvf compress.tar.bz2 file1.txt","tar -jxvf compress.tar.bz2 'file 1' 'file 2'","tar -jxvf compress.tar.bz2 --wildcards '*.tzt'","tar -rvf compress.tar.bz2 file/dir","tar -tvfW cmpress.tar ","zip compress.zip file1 file2 folder1","zip compress.zip file1 file2 file3","zip compress.zip Folder/*","zip -r compress.zip Folder","unzip -l compress.zip","less compress.zip","zipinfo -1 compress.zip","zip -d compress.zip path/to/file","unzip compress.zip","unzip compress.zip -d /destination","unzip compress.zip test.sh","chattr +a file1","chattr +c file1","chattr +d file1","chattr +i file1","chattr +s file1","chattr +S file1","chattr +u file1","lsattr file/folder ","uname","uname -n","uname -v","uname -r","uname -r","uname -m","uname -a","cat /proc/version","cat /etc/*release*","fdisk -l","mount","lscpu","cat /proc/cpuinfo","lsblk","dmidecode -t memory","cat /proc/meminfo","free&nbsp;or free -mt&nbsp;or free -gt","dmidecode -t system","dmidecode -t bios","dmidecode -t processor","dmidecode | less","ping IP/hostname","ifconfig -a","traceroute http://website.com/","route","dig http://website.com/","whois http://website.com/","host hostname host 1.2.3.4","telnet http://website.com/","tracepath http://website.com/","nslookup http://website.com/","netstat","scp -r -P 22 (ssh port) user@source_hostname:/path/to/dir /destination/path","nmap hostname -p 80","ssh user@host","ssh -p port user@host","Ctrl+C","Ctrl+Z","Ctrl+D","Ctrl+W","Ctrl+U","Ctrl+R","exit"};
+    String[] arr = {"asd [asdqwe]","cd /home &nbsp;","cd ..​","cd ../..","cd ​","cd ~user","cd -​","cp file1 file2","cp dir/* .","cp -a /tmp/dir1 .","cp -a dir1 dir2","cp file file1 ","ln -s file1 lnk1","ln file1 lnk1","ls","ls -F","ls -l","ls -a","ls *[0-9]*","lstree","mkdir dir1","mkdir dir1 dir2","mkdir -p /tmp/dir1/dir2","mv dir/file /new_path","pwd","rm -f file1","rm -rf dir1","rm -rf dir1 dir2","rmdir dir1","touch -t 0712250000 file1","tree","top","htop","ps","pstree","who","kill","pkill &amp; killall","pgrep","nice","renice","pidof","df","free","chmod 755 Linux_Directory chmod 644 Linux_File","rwx rwx rwx = 111 111 111","​rw- rw- rw- = 110 110 110","rwx --- --- = 111 000 000​","rwx = 111 in binary = 7","rw- = 110 in binary ​= 6","r-x = 101 in binary = 5","r-- = 100 in binary = 4​","777 (rwxrwxrwx)","755 (rwxr-xr-x)","700 (rwx------)","666 (rw-rw-rw-)","644 (rw-r--r--)","600 (rw-------)","find -name 'File1'","find -iname 'File1'","find /path -type f -name '*.conf'","find /path -size 50c","find /path -size -50c","find / -size +700M","find / -mtime 1","find / -atime -1","find / -ctime +3","find / -mmin -1","find / -perm 644","find / -perm -644","wc -l file_name OR cat file_name | wc -l","wc -w","wc -c","wc -m","wc -L","tar -cvf compress.tar /path/directory","tar -tvf compress.tar","tar -xvf compress.tar","tar -xvf compress.tar -C /path/to diretory","tar -xvf compress.tar file1.txt","tar -xvf compress.tar 'file 1' 'file 2'","tar -xvf compress.tar --wildcards '*.txt' ","tar -rvf compress.tar file/dir","tar -cvzf compresstar.gz /path/directory","tar -tvf compress.tar.gz","tar -zxvf compress.tar.gz","tar -zxvf compress.tar.gz -C /path/to diretory","tar -zxvf compress.tar.gz file1.txt","tar -zxvf compress.tar.gz 'file 1' 'file 2'","tar -zxvf compress.tar.gz --wildcards '*.tzt'","tar -rvf compress.tar.gz file/dir","tar -cvfj compress.tar.bz2 /path/directory","tar -tvf compress.tar.bz2","tar -xvf compress.tar.bz2","tar -jxvf compress.tar.bz2 file1.txt","tar -jxvf compress.tar.bz2 'file 1' 'file 2'","tar -jxvf compress.tar.bz2 --wildcards '*.tzt'","tar -rvf compress.tar.bz2 file/dir","tar -tvfW cmpress.tar ","zip compress.zip file1 file2 folder1","zip compress.zip file1 file2 file3","zip compress.zip Folder/*","zip -r compress.zip Folder","unzip -l compress.zip","less compress.zip","zipinfo -1 compress.zip","zip -d compress.zip path/to/file","unzip compress.zip","unzip compress.zip -d /destination","unzip compress.zip test.sh","chattr +a file1","chattr +c file1","chattr +d file1","chattr +i file1","chattr +s file1","chattr +S file1","chattr +u file1","lsattr file/folder ","uname","uname -n","uname -v","uname -r","uname -r","uname -m","uname -a","cat /proc/version","cat /etc/*release*","fdisk -l","mount","lscpu","cat /proc/cpuinfo","lsblk","dmidecode -t memory","cat /proc/meminfo","free&nbsp;or free -mt&nbsp;or free -gt","dmidecode -t system","dmidecode -t bios","dmidecode -t processor","dmidecode | less","ping IP/hostname","ifconfig -a","traceroute http://website.com/","route","dig http://website.com/","whois http://website.com/","host hostname host 1.2.3.4","telnet http://website.com/","tracepath http://website.com/","nslookup http://website.com/","netstat","scp -r -P 22 (ssh port) user@source_hostname:/path/to/dir /destination/path","nmap hostname -p 80","ssh user@host","ssh -p port user@host","Ctrl+C","Ctrl+Z","Ctrl+D","Ctrl+W","Ctrl+U","Ctrl+R","exit"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,7 +191,7 @@ public class ClientActivity extends AppCompatActivity {
     }
 
     public ArrayList<ArrayList> myTags(String my_string){
-        ArrayList<ArrayList> my_tags = new ArrayList<ArrayList>();
+        ArrayList<ArrayList> my_tags = new ArrayList<>();
         int start = -1;
         for (int i = 0; i < my_string.length(); i++) {
             if (my_string.charAt(i) == '[') {
@@ -207,57 +207,27 @@ public class ClientActivity extends AppCompatActivity {
         return(my_tags);
     }
 
-    private void setTags(TextView pTextView, String pTagString) {
+    private void setTags(TextView pTextView, final String pTagString) {
         SpannableString string = new SpannableString(pTagString);
 
-        System.err.println(myTags(pTagString));
-
-//        private String[] (){
-//            String[] list = {};
-//
-//            int start = -1;
-//            for (int i = 0; i < pTagString.length(); i++) {
-//                int tag_start = -1;
-//                if (pTagString.substring(i,i+1).equals("[[")) {
-//                    start = i;
-//                }
-//            }
-//            return list;
-//        }
-//
-//        int start = -1;
-//        for (int i = 0; i < pTagString.length(); i++) {
-//            if (pTagString.charAt(i) == '[') {
-//                start = i;
-//            } else if (pTagString.charAt(i) == ' ' || (i == pTagString.length() - 1 && start != -1)) {
-//                if (start != -1) {
-//                    if (i == pTagString.length() - 1) {
-//                        i++; // case for if hash is last word and there is no
-//                        // space after word
-//                    }
-//
-//                    final String tag = pTagString.substring(start, i);
-//                    string.setSpan(new ClickableSpan() {
-//
-//                        @Override
-//                        public void onClick(View widget) {
-//                            Toast.makeText(getApplicationContext(),"Click",Toast.LENGTH_LONG).show();
-//                        }
-//
-//                        @Override
-//                        public void updateDrawState(TextPaint ds) {
-//                            // link color
-//                            ds.setColor(Color.parseColor("#33b5e5"));
-//                            ds.setUnderlineText(false);
-//                        }
-//                    }, start, i, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-//                    start = -1;
-//                }
-//            }
-//        }
-//
-//        pTextView.setMovementMethod(LinkMovementMethod.getInstance());
-//        pTextView.setText(string);
+        for (int i = 0; i < myTags(pTagString).size(); i++){
+            final ArrayList<Integer> mytag = myTags(pTagString).get(i);
+            final String tag = pTagString.substring(mytag.get(0), mytag.get(1));
+            string.setSpan(new ClickableSpan() {
+                @Override
+                public void onClick(View widget) {
+                    String t = pTagString.substring(mytag.get(0)+1, mytag.get(1));
+                    Toast.makeText(getApplicationContext(),t,Toast.LENGTH_LONG).show();
+                }
+                @Override
+                public void updateDrawState(TextPaint ds) {
+                    ds.setColor(Color.parseColor("#33b5e5"));
+                    ds.setUnderlineText(true);
+                }
+            }, mytag.get(0), mytag.get(1)+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        pTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        pTextView.setText(string);
     }
 
     public void sendMessage(View view) {
