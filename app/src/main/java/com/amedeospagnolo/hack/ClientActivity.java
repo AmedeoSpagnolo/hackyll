@@ -74,17 +74,14 @@ public class ClientActivity extends AppCompatActivity {
 
         // autocomplete
         autocomplete = findViewById(R.id.myNewMessageBox);
-        ArrayAdapter<String> adapter_autocomplete = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, arr);
+        ArrayAdapter<String> adapter_autocomplete = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, arr);
         autocomplete.setThreshold(2);
         autocomplete.setAdapter(adapter_autocomplete);
 
         // SpannableString
         autocomplete.addTextChangedListener(new TextWatcher() {
-
             public void afterTextChanged(Editable s) {}
-
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 autocomplete.removeTextChangedListener(this);
                 setTags(autocomplete,s.toString());
@@ -147,7 +144,6 @@ public class ClientActivity extends AppCompatActivity {
     public ClickableSpan clickableSpan = new ClickableSpan() {
         @Override
         public void onClick(View textView) {
-            System.err.println("asd");
 //                startActivity(new Intent(this, NextActivity.class));
         }
     };
