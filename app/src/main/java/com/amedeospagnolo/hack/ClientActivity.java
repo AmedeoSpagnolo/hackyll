@@ -93,12 +93,10 @@ public class ClientActivity extends AppCompatActivity {
             }
         });
 
-
-
         // add fake data
-        ArrayList<DataChat> myFakeDataset = new ArrayList<DataChat>();
+        ArrayList<DataChat> myFakeDataset = new ArrayList<>();
         myChatAdapter_mine adapter = new myChatAdapter_mine(this, myFakeDataset);
-//        myChatAdapter_their adapter = new myChatAdapter_their(this, myFakeDataset);
+        // myChatAdapter_their adapter = new myChatAdapter_their(this, myFakeDataset);
         adapter.add(new DataChat("Hi, Nathan!"));
         adapter.add(new DataChat("Hi, Bob!"));
         adapter.add(new DataChat("Hi, Francene!"));
@@ -166,7 +164,7 @@ public class ClientActivity extends AppCompatActivity {
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_their_message, parent, false);
             }
-            TextView chatMessage = (TextView) convertView.findViewById(R.id.chat_message);
+            TextView chatMessage = convertView.findViewById(R.id.chat_message);
             chatMessage.setText(my_items.message);
             return convertView;
         }
@@ -184,47 +182,33 @@ public class ClientActivity extends AppCompatActivity {
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_my_message, parent, false);
             }
-            TextView chatMessage = (TextView) convertView.findViewById(R.id.chat_message);
+            TextView chatMessage = convertView.findViewById(R.id.chat_message);
             chatMessage.setText(my_items.message);
             return convertView;
         }
     }
 
-    public ArrayList<ArrayList> myTags(String my_string){
-        ArrayList<ArrayList> my_tags = new ArrayList<>();
-        int start = -1;
-        for (int i = 0; i < my_string.length(); i++) {
-            if (my_string.charAt(i) == '[') {
-                start = i;
-            } else if (my_string.charAt(i) == ']' && start != -1) {
-                ArrayList<Integer> tag = new ArrayList<>();
-                tag.add(start);
-                tag.add(i);
-                my_tags.add(tag);
-                start = -1;
-            }
-        }
-        return(my_tags);
-    }
-
     private void setTags(TextView pTextView, final String pTagString) {
         SpannableString string = new SpannableString(pTagString);
-
-        for (int i = 0; i < myTags(pTagString).size(); i++){
-            final ArrayList<Integer> mytag = myTags(pTagString).get(i);
-            final String tag = pTagString.substring(mytag.get(0), mytag.get(1));
-            string.setSpan(new ClickableSpan() {
-                @Override
-                public void onClick(View widget) {
-                    String t = pTagString.substring(mytag.get(0)+1, mytag.get(1));
-                    Toast.makeText(getApplicationContext(),t,Toast.LENGTH_LONG).show();
-                }
-                @Override
-                public void updateDrawState(TextPaint ds) {
-                    ds.setColor(Color.parseColor("#33b5e5"));
-                    ds.setUnderlineText(true);
-                }
-            }, mytag.get(0), mytag.get(1)+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        int start = -1;
+        for (int i = 0; i < pTagString.length(); i++) {
+            if (pTagString.charAt(i) == '[') {
+                start = i;
+            } else if (pTagString.charAt(i) == ']' && start != -1) {
+                final String tag = pTagString.substring(start+1, i);
+                string.setSpan(new ClickableSpan() {
+                    @Override
+                    public void onClick(View widget) {
+                        Toast.makeText(getApplicationContext(),tag,Toast.LENGTH_LONG).show();
+                    }
+                    @Override
+                    public void updateDrawState(TextPaint ds) {
+                        ds.setColor(Color.parseColor("#33b5e5"));
+                        ds.setUnderlineText(true);
+                    }
+                }, start, i + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                start = -1;
+            }
         }
         pTextView.setMovementMethod(LinkMovementMethod.getInstance());
         pTextView.setText(string);
