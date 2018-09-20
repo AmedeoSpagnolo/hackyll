@@ -59,6 +59,15 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".HelpActivity"
+            android:label="Info"
+            android:parentActivityName=".ClientActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ClientActivity" />
+        </activity>
+        <activity
             android:name=".AddClientActivity"
             android:label="Add Client"
             android:parentActivityName=".MainActivity"

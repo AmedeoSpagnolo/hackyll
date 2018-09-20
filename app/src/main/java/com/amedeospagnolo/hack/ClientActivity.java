@@ -218,4 +218,11 @@ public class ClientActivity extends AppCompatActivity {
         }
     }
 
+    public void open_help(View view) {
+        Context context = getApplicationContext();
+        Intent intent = new Intent(context, HelpActivity.class);
+        context.startActivity(intent);
+        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
+    }
+
 }

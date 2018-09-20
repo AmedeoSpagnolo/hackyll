@@ -99,9 +99,9 @@
                         android:layout_height="27dp"
                         android:layout_gravity="center"
                         android:layout_marginHorizontal="10dp"
-                        android:background="@drawable/text_input_keyboard"
+                        android:background="@drawable/text_input_help"
                         android:padding="20dp"
-                        android:onClick=""
+                        android:onClick="open_help"
                         android:scaleType="fitCenter" />
                 </LinearLayout>
 
