@@ -2,9 +2,18 @@ package com.amedeospagnolo.hack;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,7 +26,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class ClientActivity extends AppCompatActivity {
@@ -64,6 +77,23 @@ public class ClientActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter_autocomplete = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, arr);
         autocomplete.setThreshold(2);
         autocomplete.setAdapter(adapter_autocomplete);
+
+        // SpannableString
+        autocomplete.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {}
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                autocomplete.removeTextChangedListener(this);
+                setTags(autocomplete,s.toString());
+                autocomplete.setSelection(autocomplete.getText().toString().length());
+                autocomplete.addTextChangedListener(this);
+            }
+        });
+
+
 
         // add fake data
         ArrayList<DataChat> myFakeDataset = new ArrayList<DataChat>();
@@ -116,6 +146,14 @@ public class ClientActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public ClickableSpan clickableSpan = new ClickableSpan() {
+        @Override
+        public void onClick(View textView) {
+            System.err.println("asd");
+//                startActivity(new Intent(this, NextActivity.class));
+        }
+    };
+
     public class myChatAdapter_their extends ArrayAdapter<DataChat> {
         public myChatAdapter_their(Context context, ArrayList<DataChat> my_items) {
             super(context, 0, my_items);
@@ -150,6 +188,76 @@ public class ClientActivity extends AppCompatActivity {
             chatMessage.setText(my_items.message);
             return convertView;
         }
+    }
+
+    public ArrayList<ArrayList> myTags(String my_string){
+        ArrayList<ArrayList> my_tags = new ArrayList<ArrayList>();
+        int start = -1;
+        for (int i = 0; i < my_string.length(); i++) {
+            if (my_string.charAt(i) == '[') {
+                start = i;
+            } else if (my_string.charAt(i) == ']' && start != -1) {
+                ArrayList<Integer> tag = new ArrayList<>();
+                tag.add(start);
+                tag.add(i);
+                my_tags.add(tag);
+                start = -1;
+            }
+        }
+        return(my_tags);
+    }
+
+    private void setTags(TextView pTextView, String pTagString) {
+        SpannableString string = new SpannableString(pTagString);
+
+        System.err.println(myTags(pTagString));
+
+//        private String[] (){
+//            String[] list = {};
+//
+//            int start = -1;
+//            for (int i = 0; i < pTagString.length(); i++) {
+//                int tag_start = -1;
+//                if (pTagString.substring(i,i+1).equals("[[")) {
+//                    start = i;
+//                }
+//            }
+//            return list;
+//        }
+//
+//        int start = -1;
+//        for (int i = 0; i < pTagString.length(); i++) {
+//            if (pTagString.charAt(i) == '[') {
+//                start = i;
+//            } else if (pTagString.charAt(i) == ' ' || (i == pTagString.length() - 1 && start != -1)) {
+//                if (start != -1) {
+//                    if (i == pTagString.length() - 1) {
+//                        i++; // case for if hash is last word and there is no
+//                        // space after word
+//                    }
+//
+//                    final String tag = pTagString.substring(start, i);
+//                    string.setSpan(new ClickableSpan() {
+//
+//                        @Override
+//                        public void onClick(View widget) {
+//                            Toast.makeText(getApplicationContext(),"Click",Toast.LENGTH_LONG).show();
+//                        }
+//
+//                        @Override
+//                        public void updateDrawState(TextPaint ds) {
+//                            // link color
+//                            ds.setColor(Color.parseColor("#33b5e5"));
+//                            ds.setUnderlineText(false);
+//                        }
+//                    }, start, i, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//                    start = -1;
+//                }
+//            }
+//        }
+//
+//        pTextView.setMovementMethod(LinkMovementMethod.getInstance());
+//        pTextView.setText(string);
     }
 
     public void sendMessage(View view) {
