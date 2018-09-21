@@ -2,8 +2,11 @@ package com.amedeospagnolo.hack;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -24,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -195,7 +199,11 @@ public class ClientActivity extends AppCompatActivity {
                 string.setSpan(new ClickableSpan() {
                     @Override
                     public void onClick(View widget) {
-                        Toast.makeText(getApplicationContext(),tag,Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(
+                                Intent.ACTION_PICK,
+                                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        startActivityForResult(intent, 0);
+                        // Toast.makeText(getApplicationContext(),tag,Toast.LENGTH_LONG).show();
                     }
                     @Override
                     public void updateDrawState(TextPaint ds) {
@@ -208,6 +216,30 @@ public class ClientActivity extends AppCompatActivity {
         }
         pTextView.setMovementMethod(LinkMovementMethod.getInstance());
         pTextView.setText(string);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+            Cursor cursor = getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+
+//            replacePath( , picturePath);
+//            find path
+//            imageView = (ImageView) findViewById(R.id.property_image);
+//            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
+        }
+
     }
 
     public void sendMessage(View view) {
