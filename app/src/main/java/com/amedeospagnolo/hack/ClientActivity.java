@@ -203,19 +203,11 @@ public class ClientActivity extends AppCompatActivity {
                 start = i;
             } else if (pTagString.charAt(i) == ']' && start != -1) {
                 final String tag = pTagString.substring(start+1, i);
-                if (    tag.equals("image")  ||
-                        tag.equals("image1") ||
-                        tag.equals("image2") ||
-                        tag.equals("image3") ||
-                        tag.equals("sound")  ||
-                        tag.equals("sound1") ||
-                        tag.equals("sound2") ||
-                        tag.equals("sound3")){
+                if (tag.equals("image") || tag.equals("image1") || tag.equals("image2") || tag.equals("image3")){
                     string.setSpan(new ClickableSpan() {
                         @Override
                         public void onClick(View widget) {
-                            Intent intent = new Intent(
-                                    Intent.ACTION_PICK,
+                            Intent intent = new Intent(Intent.ACTION_PICK,
                                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                             setResult(Activity.RESULT_OK, intent);
                             switch (tag) {
@@ -223,6 +215,22 @@ public class ClientActivity extends AppCompatActivity {
                                 case "image1": { startActivityForResult(intent, IMAGE1); break; }
                                 case "image2": { startActivityForResult(intent, IMAGE2); break; }
                                 case "image3": { startActivityForResult(intent, IMAGE3); break; }
+                            }
+                        }
+                        @Override
+                        public void updateDrawState(TextPaint ds) {
+                            ds.setColor(Color.parseColor("#33b5e5"));
+                            ds.setUnderlineText(true);
+                        }
+                    }, start, i + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                } else if (tag.equals("sound") || tag.equals("sound1") || tag.equals("sound2") || tag.equals("sound3")){
+                    string.setSpan(new ClickableSpan() {
+                        @Override
+                        public void onClick(View widget) {
+                            Intent intent = new Intent(Intent.ACTION_PICK,
+                                    android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+                            setResult(Activity.RESULT_OK, intent);
+                            switch (tag) {
                                 case "sound" : { startActivityForResult(intent, SOUND);  break; }
                                 case "sound1": { startActivityForResult(intent, SOUND1); break; }
                                 case "sound2": { startActivityForResult(intent, SOUND2); break; }
@@ -248,25 +256,40 @@ public class ClientActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            String outPath = "";
 
-            Cursor cursor = getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
+            String[] filePathColumnImages = { MediaStore.Images.Media.DATA };
+            String[] filePathColumnAudio  = { MediaStore.Audio.Media.DATA };
 
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
+            if (requestCode == IMAGE || requestCode == IMAGE1 || requestCode == IMAGE2 || requestCode == IMAGE3){
+                if (selectedImage != null) {
+                    Cursor cursor = getContentResolver().query(selectedImage, filePathColumnImages, null, null, null);
+                    cursor.moveToFirst();
+                    int columnIndex = cursor.getColumnIndex(filePathColumnImages[0]);
+                    outPath = cursor.getString(columnIndex);
+                    cursor.close();
+                }
+            } else if (requestCode == SOUND || requestCode == SOUND1 || requestCode == SOUND2 || requestCode == SOUND3){
+                if (selectedImage != null) {
+                    Cursor cursor = getContentResolver().query(selectedImage, filePathColumnAudio, null, null, null);
+                    cursor.moveToFirst();
+                    int columnIndex = cursor.getColumnIndex(filePathColumnAudio[0]);
+                    outPath = cursor.getString(columnIndex);
+                    cursor.close();
+                }
+            }
+
             editText = findViewById(R.id.myNewMessageBox);
             String modify_text = editText.getText().toString();
-            if (requestCode == IMAGE)  { modify_text = editText.getText().toString().replace("[image]", picturePath);  }
-            if (requestCode == IMAGE1) { modify_text = editText.getText().toString().replace("[image1]", picturePath); }
-            if (requestCode == IMAGE2) { modify_text = editText.getText().toString().replace("[image2]", picturePath); }
-            if (requestCode == IMAGE3) { modify_text = editText.getText().toString().replace("[image3]", picturePath); }
-            if (requestCode == SOUND)  { modify_text = editText.getText().toString().replace("[sound]", picturePath);  }
-            if (requestCode == SOUND1) { modify_text = editText.getText().toString().replace("[sound1]", picturePath); }
-            if (requestCode == SOUND2) { modify_text = editText.getText().toString().replace("[sound2]", picturePath); }
-            if (requestCode == SOUND3) { modify_text = editText.getText().toString().replace("[sound3]", picturePath); }
+
+            if (requestCode == IMAGE)  { modify_text = editText.getText().toString().replace("[image]", outPath);  }
+            if (requestCode == IMAGE1) { modify_text = editText.getText().toString().replace("[image1]", outPath); }
+            if (requestCode == IMAGE2) { modify_text = editText.getText().toString().replace("[image2]", outPath); }
+            if (requestCode == IMAGE3) { modify_text = editText.getText().toString().replace("[image3]", outPath); }
+            if (requestCode == SOUND)  { modify_text = editText.getText().toString().replace("[sound]", outPath);  }
+            if (requestCode == SOUND1) { modify_text = editText.getText().toString().replace("[sound1]", outPath); }
+            if (requestCode == SOUND2) { modify_text = editText.getText().toString().replace("[sound2]", outPath); }
+            if (requestCode == SOUND3) { modify_text = editText.getText().toString().replace("[sound3]", outPath); }
             editText.setText(modify_text);
         }
 
