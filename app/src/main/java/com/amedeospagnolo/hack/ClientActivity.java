@@ -1,5 +1,6 @@
 package com.amedeospagnolo.hack;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -145,13 +146,6 @@ public class ClientActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public ClickableSpan clickableSpan = new ClickableSpan() {
-        @Override
-        public void onClick(View textView) {
-//                startActivity(new Intent(this, NextActivity.class));
-        }
-    };
-
     public class myChatAdapter_their extends ArrayAdapter<DataChat> {
         public myChatAdapter_their(Context context, ArrayList<DataChat> my_items) {
             super(context, 0, my_items);
@@ -196,14 +190,21 @@ public class ClientActivity extends AppCompatActivity {
                 start = i;
             } else if (pTagString.charAt(i) == ']' && start != -1) {
                 final String tag = pTagString.substring(start+1, i);
+                final Integer _start = start+1;
+                final Integer _end = i;
                 string.setSpan(new ClickableSpan() {
                     @Override
                     public void onClick(View widget) {
-                        Intent intent = new Intent(
-                                Intent.ACTION_PICK,
-                                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(intent, 0);
-                        // Toast.makeText(getApplicationContext(),tag,Toast.LENGTH_LONG).show();
+                        if (true){ // if (tag.equals("image") || tag.equals("photo") || tag.equals("pic")){
+                            Intent intent = new Intent(
+                                    Intent.ACTION_PICK,
+                                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                            intent.putExtra("start", _start);
+                            intent.putExtra("end", _end);
+                            intent.putExtra("test", "FANCULO");
+                            setResult(Activity.RESULT_OK, intent);
+                            startActivityForResult(intent, 0);
+                        }
                     }
                     @Override
                     public void updateDrawState(TextPaint ds) {
@@ -233,10 +234,19 @@ public class ClientActivity extends AppCompatActivity {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-//            replacePath( , picturePath);
-//            find path
-//            imageView = (ImageView) findViewById(R.id.property_image);
-//            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            editText = findViewById(R.id.myNewMessageBox);
+            String modify_text = editText.getText().toString().replace("[asdqwe]", picturePath);
+            System.err.println(">>>-------<<<");
+//            getIntent().getIntExtra("start", -1);
+//            Bundle extras = getIntent().getExtras();
+//            String result = data.getStringExtra("test");
+//            Bundle extras = getIntent().getExtras("start");
+//            System.err.println(getIntent().getIntExtra("start", -1));
+            System.err.println(data);
+//            System.err.println(data);
+//            System.err.println(picturePath);
+//            System.err.println(modify_text);
+//            editText.setText(modify_text);
 
         }
 
