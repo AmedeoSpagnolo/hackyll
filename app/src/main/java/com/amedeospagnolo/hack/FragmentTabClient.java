@@ -40,10 +40,13 @@ public class FragmentTabClient extends Fragment implements ModelPresenter.Update
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3){
+                RpcSession rpcSession = adapter.getItem(position);
                 Context context = getContext();
                 Intent intent = new Intent(context, ClientActivity.class);
-                // intent.putExtra("client_ip", clIp);
-                if (context != null) context.startActivity(intent);
+//                intent.putExtra(ClientActivity.KEY_SERVER_ID, rpcSession.rpcServer.);
+                intent.putExtra(ClientActivity.KEY_SESSION_ID, rpcSession.session.id);
+                intent.putExtra(ClientActivity.KEY_TYPE, rpcSession.session.type);
+                context.startActivity(intent);
                 // overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_left);
             }
         });
